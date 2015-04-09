@@ -25,4 +25,9 @@
 @property ( copy ) NSString* requestToken;
 - ( IBAction ) fetchRequestTokenAction: ( id )_Sender;
 
+@property ( weak ) IBOutlet NSTextField* inputPINTextField;
+@property ( weak ) IBOutlet NSButton* fetchAccessTokenButton;
+@property ( weak ) IBOutlet NSTextField* accessTokenLabel;
+- ( IBAction ) fetchAccessToken: ( id )_Sender;
+
 @end

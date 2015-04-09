@@ -49,4 +49,23 @@
                             errorBlock: ^( NSError* _Error ) { NSLog( @"%@", _Error ); } ];
     }
 
+@synthesize inputPINTextField;
+@synthesize fetchAccessTokenButton;
+- ( IBAction ) fetchAccessToken: ( id )_Sender
+    {
+    [ self.twitterAPI postAccessTokenRequestWithPIN: self.inputPINTextField.stringValue
+                                       successBlock:
+        ^( NSString* _OAuthToken, NSString* _OAuthTokenSecret, NSString* _UserID, NSString* _ScreenName )
+            {
+            NSString* formatString = [ NSString stringWithFormat: @"User ID: %@     Screen Name: %@     "
+                                                                   "OAuth Token: %@     OAuth Token Secret: %@"
+                                                                , _UserID, _ScreenName, _OAuthToken, _OAuthTokenSecret ];
+            [ self.accessTokenLabel setStringValue: formatString ];
+            NSLog( @"Consumer Key: %@ from self.twitterAPI", self.twitterAPI.oauthAccessToken );
+            NSLog( @"Consumer Secret: %@ from self.twitterAPI", self.twitterAPI.oauthAccessTokenSecret );
+            }
+                                         errorBlock: ^( NSError* _Error ) { NSLog( @"%@", _Error ); } ];
+
+    }
+
 @end
