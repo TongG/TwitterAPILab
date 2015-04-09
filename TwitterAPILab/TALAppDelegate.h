@@ -8,8 +8,21 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class STTwitterAPI;
+
 @interface TALAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
+
+@property ( retain ) STTwitterAPI* twitterAPI;
+    @property ( copy ) NSString* consumerName;
+    @property ( copy ) NSString* consumerKey;
+    @property ( copy ) NSString* consumerSecret;
+
+#pragma mark Authorizaton
+@property ( weak ) IBOutlet NSButton* fetchRequestToken;
+@property ( weak ) IBOutlet NSTextField* requestTokenLabel;
+@property ( copy ) NSString* requestToken;
+- ( IBAction ) fetchRequestTokenAction: ( id )_Sender;
 
 @end
