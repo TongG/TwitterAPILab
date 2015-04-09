@@ -30,4 +30,8 @@
 @property ( weak ) IBOutlet NSTextField* accessTokenLabel;
 - ( IBAction ) fetchAccessToken: ( id )_Sender;
 
+#pragma mark Statuses
+@property ( weak ) IBOutlet NSButton* GETMentionsTimeLineButton;
+- ( IBAction ) GETMentionsTimeLineAction: ( id )_Sender;
+
 @end

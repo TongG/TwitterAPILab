@@ -13,6 +13,7 @@
         <customObject id="-3" userLabel="Application"/>
         <customObject id="Voe-Tx-rLC" customClass="TALAppDelegate">
             <connections>
+                <outlet property="GETMentionsTimeLineButton" destination="frk-fZ-hVB" id="R3Y-wr-FVE"/>
                 <outlet property="accessTokenLabel" destination="lWG-hM-Y6S" id="rtN-8w-HWn"/>
                 <outlet property="fetchAccessTokenButton" destination="wnx-hc-wef" id="Uhx-2i-4Gj"/>
                 <outlet property="fetchRequestToken" destination="lbS-Vh-ptS" id="A1h-BQ-Q1v"/>
@@ -738,6 +739,24 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <box autoresizesSubviews="NO" verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="RRK-IP-xho">
+                        <rect key="frame" x="20" y="314" width="440" height="5"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <font key="titleFont" metaFont="system"/>
+                    </box>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="frk-fZ-hVB">
+                        <rect key="frame" x="20" y="286" width="150" height="23"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="smallSquare" title="GET Mentions Timeline" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FC6-Gy-w2k">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="GETMentionsTimeLineAction:" target="Voe-Tx-rLC" id="wlG-Oh-xdD"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
         </window>

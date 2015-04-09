@@ -68,4 +68,22 @@
 
     }
 
+#pragma mark Statuses
+@synthesize GETMentionsTimeLineButton;
+- ( IBAction ) GETMentionsTimeLineAction: ( id )_Sender
+    {
+    [ self.twitterAPI getStatusesMentionTimelineWithCount: @"1"
+                                                  sinceID: nil
+                                                    maxID: nil
+                                                 trimUser: @NO
+                                       contributorDetails: @NO
+                                          includeEntities: @YES
+                                             successBlock:
+        ^( NSArray* _Statuses )
+            {
+            NSLog( @"Statuses: %@", _Statuses );
+            }
+                                               errorBlock: ^( NSError* _Error ) { NSLog( @"%@", _Error ); } ];
+    }
+
 @end
