@@ -32,6 +32,10 @@
 		83A2EFEB1AD65B2700612A0C /* BAVPlistNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A2EFDB1AD65B2600612A0C /* BAVPlistNode.m */; };
 		83A2EFEC1AD65B2700612A0C /* JSONSyntaxHighlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A2EFDD1AD65B2700612A0C /* JSONSyntaxHighlight.m */; };
 		83A2EFED1AD65B2700612A0C /* STHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A2EFDF1AD65B2700612A0C /* STHTTPRequest.m */; };
+		83B5312E1AD76D4300021914 /* OTCTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B5312D1AD76D4300021914 /* OTCTweet.m */; };
+		83B531311AD778BC00021914 /* NSDate+WSCCocoaDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B531301AD778BC00021914 /* NSDate+WSCCocoaDate.m */; };
+		83B531341AD7C87E00021914 /* OTCEmbeddedURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B531331AD7C87E00021914 /* OTCEmbeddedURL.m */; };
+		83B531381AD7F0F200021914 /* _OTCGeneral.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B531371AD7F0F200021914 /* _OTCGeneral.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +100,14 @@
 		83A2EFDE1AD65B2700612A0C /* STHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STHTTPRequest.h; sourceTree = "<group>"; };
 		83A2EFDF1AD65B2700612A0C /* STHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STHTTPRequest.m; sourceTree = "<group>"; };
 		83A2EFEE1AD65B4200612A0C /* TwitterAPILab.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TwitterAPILab.entitlements; sourceTree = "<group>"; };
+		83B5312C1AD76D4300021914 /* OTCTweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTCTweet.h; sourceTree = "<group>"; };
+		83B5312D1AD76D4300021914 /* OTCTweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTCTweet.m; sourceTree = "<group>"; };
+		83B5312F1AD778BC00021914 /* NSDate+WSCCocoaDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+WSCCocoaDate.h"; sourceTree = "<group>"; };
+		83B531301AD778BC00021914 /* NSDate+WSCCocoaDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+WSCCocoaDate.m"; sourceTree = "<group>"; };
+		83B531321AD7C87E00021914 /* OTCEmbeddedURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTCEmbeddedURL.h; sourceTree = "<group>"; };
+		83B531331AD7C87E00021914 /* OTCEmbeddedURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTCEmbeddedURL.m; sourceTree = "<group>"; };
+		83B531361AD7F0E300021914 /* _OTCGeneral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _OTCGeneral.h; sourceTree = "<group>"; };
+		83B531371AD7F0F200021914 /* _OTCGeneral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _OTCGeneral.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +225,7 @@
 		83A2EFBF1AD65B2600612A0C /* STTwitter */ = {
 			isa = PBXGroup;
 			children = (
+				83B531351AD7F0D000021914 /* Private */,
 				83A2EFC01AD65B2600612A0C /* NSDateFormatter+STTwitter.h */,
 				83A2EFC11AD65B2600612A0C /* NSDateFormatter+STTwitter.m */,
 				83A2EFC21AD65B2600612A0C /* NSError+STTwitter.h */,
@@ -238,6 +251,12 @@
 				83A2EFD61AD65B2600612A0C /* STTwitterRequestProtocol.h */,
 				83A2EFD71AD65B2600612A0C /* STTwitterStreamParser.h */,
 				83A2EFD81AD65B2600612A0C /* STTwitterStreamParser.m */,
+				83B5312C1AD76D4300021914 /* OTCTweet.h */,
+				83B5312D1AD76D4300021914 /* OTCTweet.m */,
+				83B531321AD7C87E00021914 /* OTCEmbeddedURL.h */,
+				83B531331AD7C87E00021914 /* OTCEmbeddedURL.m */,
+				83B5312F1AD778BC00021914 /* NSDate+WSCCocoaDate.h */,
+				83B531301AD778BC00021914 /* NSDate+WSCCocoaDate.m */,
 				83A2EFD91AD65B2600612A0C /* Vendor */,
 			);
 			name = STTwitter;
@@ -255,6 +274,15 @@
 				83A2EFDF1AD65B2700612A0C /* STHTTPRequest.m */,
 			);
 			path = Vendor;
+			sourceTree = "<group>";
+		};
+		83B531351AD7F0D000021914 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				83B531361AD7F0E300021914 /* _OTCGeneral.h */,
+				83B531371AD7F0F200021914 /* _OTCGeneral.m */,
+			);
+			name = Private;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,11 +397,15 @@
 				83A2EFEB1AD65B2700612A0C /* BAVPlistNode.m in Sources */,
 				83A2EFE91AD65B2700612A0C /* STTwitterOSRequest.m in Sources */,
 				83A2EFE71AD65B2700612A0C /* STTwitterOAuth.m in Sources */,
+				83B531381AD7F0F200021914 /* _OTCGeneral.m in Sources */,
 				83A2EFE81AD65B2700612A0C /* STTwitterOS.m in Sources */,
 				83A2EFEA1AD65B2700612A0C /* STTwitterStreamParser.m in Sources */,
+				83B531341AD7C87E00021914 /* OTCEmbeddedURL.m in Sources */,
 				83A2EFE11AD65B2700612A0C /* NSError+STTwitter.m in Sources */,
+				83B531311AD778BC00021914 /* NSDate+WSCCocoaDate.m in Sources */,
 				83A2EFED1AD65B2700612A0C /* STHTTPRequest.m in Sources */,
 				83A2EFE01AD65B2700612A0C /* NSDateFormatter+STTwitter.m in Sources */,
+				83B5312E1AD76D4300021914 /* OTCTweet.m in Sources */,
 				83A2EFEC1AD65B2700612A0C /* JSONSyntaxHighlight.m in Sources */,
 				83A2EFE61AD65B2700612A0C /* STTwitterHTML.m in Sources */,
 				83A2EFE31AD65B2700612A0C /* STHTTPRequest+STTwitter.m in Sources */,
@@ -594,6 +626,7 @@
 				83A2EFBA1AD658E300612A0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		83A2EFBB1AD658E300612A0C /* Build configuration list for PBXNativeTarget "TwitterAPILabTests" */ = {
 			isa = XCConfigurationList;
@@ -602,6 +635,7 @@
 				83A2EFBD1AD658E300612A0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

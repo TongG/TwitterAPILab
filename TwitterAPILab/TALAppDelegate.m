@@ -8,6 +8,7 @@
 
 #import "TALAppDelegate.h"
 #import "STTwitter.h"
+#import "OTCTweet.h"
 
 @implementation TALAppDelegate
 
@@ -72,7 +73,7 @@
 @synthesize GETMentionsTimeLineButton;
 - ( IBAction ) GETMentionsTimeLineAction: ( id )_Sender
     {
-    [ self.twitterAPI getStatusesMentionTimelineWithCount: @"1"
+    [ self.twitterAPI getStatusesMentionTimelineWithCount: @"10"
                                                   sinceID: nil
                                                     maxID: nil
                                                  trimUser: @NO
@@ -81,7 +82,26 @@
                                              successBlock:
         ^( NSArray* _Statuses )
             {
-            NSLog( @"Statuses: %@", _Statuses );
+            OTCTweet* status = [ OTCTweet tweetWithJSON: _Statuses[ 1 ] ];
+            NSDate* dateCreated = [ status dateCreated ];
+
+            BOOL isFavoritedByMe = [ status isFavoritedByMe ];
+            NSUInteger favoriteCount = [ status favoriteCount ];
+            BOOL isRetweetedByMe = [ status isRetweetedByMe ];
+            NSUInteger retweetCount = [ status retweetCount ];
+
+            NSString* tweetIDString = [ status tweetIDString ];
+            NSUInteger tweetID = [ status tweetID ];
+
+            NSString* tweetText = [ status tweetText ];
+            NSString* source = [ status source ];
+            NSString* language = [ status language ];
+
+            NSString* replyToUserScreenName = [ status replyToUserScreenName ];
+            NSString* replyToUserIDString = [ status replyToUserIDString ];
+            NSUInteger replyToUserID = [ status replyToUserID ];
+            NSString* replyToTweetIDString = [ status replyToTweetIDString ];
+            NSUInteger replyToTweetID = [ status replyToTweetID ];
             }
                                                errorBlock: ^( NSError* _Error ) { NSLog( @"%@", _Error ); } ];
     }
