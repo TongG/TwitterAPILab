@@ -34,4 +34,7 @@
 @property ( weak ) IBOutlet NSButton* GETMentionsTimeLineButton;
 - ( IBAction ) GETMentionsTimeLineAction: ( id )_Sender;
 
+@property ( weak ) IBOutlet NSButton* GETUserTimelineButton;
+- ( IBAction ) GETUserTimelineAction: ( id )_Sender;
+
 @end

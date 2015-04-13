@@ -14,6 +14,7 @@
         <customObject id="Voe-Tx-rLC" customClass="TALAppDelegate">
             <connections>
                 <outlet property="GETMentionsTimeLineButton" destination="frk-fZ-hVB" id="R3Y-wr-FVE"/>
+                <outlet property="GETUserTimelineButton" destination="Tf8-Fe-aQw" id="MG1-pC-PUI"/>
                 <outlet property="accessTokenLabel" destination="lWG-hM-Y6S" id="rtN-8w-HWn"/>
                 <outlet property="fetchAccessTokenButton" destination="wnx-hc-wef" id="Uhx-2i-4Gj"/>
                 <outlet property="fetchRequestToken" destination="lbS-Vh-ptS" id="A1h-BQ-Q1v"/>
@@ -755,6 +756,17 @@
                         </buttonCell>
                         <connections>
                             <action selector="GETMentionsTimeLineAction:" target="Voe-Tx-rLC" id="wlG-Oh-xdD"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tf8-Fe-aQw">
+                        <rect key="frame" x="178" y="286" width="120" height="23"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="smallSquare" title="GET User Timeline" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2mZ-lw-GyH">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="GETUserTimelineAction:" target="Voe-Tx-rLC" id="BDo-TU-p8N"/>
                         </connections>
                     </button>
                 </subviews>

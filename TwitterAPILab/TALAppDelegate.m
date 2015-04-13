@@ -19,16 +19,25 @@
 - ( void ) awakeFromNib
     {
     NSURL* URLOfConsumerTokens = [ NSURL URLWithString: [ NSString stringWithFormat: @"file://%@", [ NSHomeDirectory() stringByAppendingString: @"/Documents/consumer-tokens.txt" ] ] ];
+    NSURL* URLOfAccessTokens = [ NSURL URLWithString: [ NSString stringWithFormat: @"file://%@", [ NSHomeDirectory() stringByAppendingString: @"/Documents/access-tokens.txt" ] ] ];
     NSString* consumerTokens = [ NSString stringWithContentsOfURL: URLOfConsumerTokens encoding: NSUTF8StringEncoding error: nil ];
+    NSString* accessTokens = [ NSString stringWithContentsOfURL: URLOfAccessTokens encoding: NSUTF8StringEncoding error: nil ];
 
-    NSArray* components = [ consumerTokens componentsSeparatedByString: @"&" ];
-    self.consumerName = components.firstObject;
-    self.consumerKey = components[ 1 ] ;
-    self.consumerSecret = components.lastObject;
+    NSArray* consumerTokenComponents = [ consumerTokens componentsSeparatedByString: @"&" ];
+    NSArray* accessTokenComponents = [ accessTokens componentsSeparatedByString: @"&" ];
+    self.consumerName = consumerTokenComponents.firstObject;
+    self.consumerKey = consumerTokenComponents[ 1 ] ;
+    self.consumerSecret = consumerTokenComponents.lastObject;
+
+    self.accessTokenLabel.stringValue = [ NSString stringWithFormat: @"%@   %@"
+                                                                   , accessTokenComponents.firstObject
+                                                                   , accessTokenComponents.lastObject ];
 
     self.twitterAPI = [ STTwitterAPI twitterAPIWithOAuthConsumerName: self.consumerName
                                                          consumerKey: self.consumerKey
-                                                      consumerSecret: self.consumerSecret ];
+                                                      consumerSecret: self.consumerSecret
+                                                          oauthToken: accessTokenComponents.firstObject
+                                                    oauthTokenSecret: accessTokenComponents.lastObject ];
     }
 
 #pragma mark Authorizaton
@@ -82,28 +91,24 @@
                                              successBlock:
         ^( NSArray* _Statuses )
             {
-            OTCTweet* status = [ OTCTweet tweetWithJSON: _Statuses[ 1 ] ];
-            NSDate* dateCreated = [ status dateCreated ];
-
-            BOOL isFavoritedByMe = [ status isFavoritedByMe ];
-            NSUInteger favoriteCount = [ status favoriteCount ];
-            BOOL isRetweetedByMe = [ status isRetweetedByMe ];
-            NSUInteger retweetCount = [ status retweetCount ];
-
-            NSString* tweetIDString = [ status tweetIDString ];
-            NSUInteger tweetID = [ status tweetID ];
-
-            NSString* tweetText = [ status tweetText ];
-            NSString* source = [ status source ];
-            NSString* language = [ status language ];
-
-            NSString* replyToUserScreenName = [ status replyToUserScreenName ];
-            NSString* replyToUserIDString = [ status replyToUserIDString ];
-            NSUInteger replyToUserID = [ status replyToUserID ];
-            NSString* replyToTweetIDString = [ status replyToTweetIDString ];
-            NSUInteger replyToTweetID = [ status replyToTweetID ];
+            OTCTweet* status = [ OTCTweet tweetWithJSON: _Statuses[ 0 ] ];
+            NSLog( @"%@", status );
             }
                                                errorBlock: ^( NSError* _Error ) { NSLog( @"%@", _Error ); } ];
+    }
+
+@synthesize GETUserTimelineButton;
+- ( IBAction ) GETUserTimelineAction: ( id )_Sender
+    {
+    [ self.twitterAPI getUserTimelineWithScreenName: @"BotOfNSTongG"
+                                              count: 10
+                                       successBlock:
+        ^( NSArray* _Statuses )
+            {
+            OTCTweet* status = [ OTCTweet tweetWithJSON: _Statuses[ 0 ] ];
+            NSLog( @"%@", status );
+            }
+                                             errorBlock: ^( NSError* _Error ) { NSLog( @"%@", _Error ); } ];
     }
 
 @end
