@@ -105,7 +105,7 @@
                                        successBlock:
         ^( NSArray* _Statuses )
             {
-            OTCTweet* status = [ OTCTweet tweetWithJSON: _Statuses[ 0 ] ];
+            OTCTweet* status = [ OTCTweet tweetWithJSON: _Statuses[ 1 ] ];
             NSLog( @"%@", status );
             }
                                              errorBlock: ^( NSError* _Error ) { NSLog( @"%@", _Error ); } ];

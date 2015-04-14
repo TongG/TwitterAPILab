@@ -11,6 +11,7 @@
 		835329EC1AD8FF8F00F37CFD /* OTCResolvedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 835329EB1AD8FF8F00F37CFD /* OTCResolvedObject.m */; };
 		835329F01AD919CD00F37CFD /* OTCFinancialSymbol.m in Sources */ = {isa = PBXBuildFile; fileRef = 835329EF1AD919CD00F37CFD /* OTCFinancialSymbol.m */; };
 		835329F31AD91C3900F37CFD /* OTCUserMention.m in Sources */ = {isa = PBXBuildFile; fileRef = 835329F21AD91C3900F37CFD /* OTCUserMention.m */; };
+		8368F84C1ADC23350035C0D7 /* OTCPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 8368F84B1ADC23350035C0D7 /* OTCPlace.m */; };
 		83A2EF8B1AD658E300612A0C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83A2EF8A1AD658E300612A0C /* Cocoa.framework */; };
 		83A2EF951AD658E300612A0C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83A2EF931AD658E300612A0C /* InfoPlist.strings */; };
 		83A2EF971AD658E300612A0C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A2EF961AD658E300612A0C /* main.m */; };
@@ -84,6 +85,8 @@
 		835329EF1AD919CD00F37CFD /* OTCFinancialSymbol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTCFinancialSymbol.m; sourceTree = "<group>"; };
 		835329F11AD91C3900F37CFD /* OTCUserMention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTCUserMention.h; sourceTree = "<group>"; };
 		835329F21AD91C3900F37CFD /* OTCUserMention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTCUserMention.m; sourceTree = "<group>"; };
+		8368F84A1ADC23350035C0D7 /* OTCPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTCPlace.h; sourceTree = "<group>"; };
+		8368F84B1ADC23350035C0D7 /* OTCPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTCPlace.m; sourceTree = "<group>"; };
 		83A2EF871AD658E300612A0C /* TwitterAPILab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterAPILab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83A2EF8A1AD658E300612A0C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		83A2EF8D1AD658E300612A0C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -303,6 +306,8 @@
 				835329F21AD91C3900F37CFD /* OTCUserMention.m */,
 				83C48BB71AD960A40095C22C /* OTCMedia.h */,
 				83C48BB81AD960A40095C22C /* OTCMedia.m */,
+				8368F84A1ADC23350035C0D7 /* OTCPlace.h */,
+				8368F84B1ADC23350035C0D7 /* OTCPlace.m */,
 				83B5312F1AD778BC00021914 /* NSDate+WSCCocoaDate.h */,
 				83B531301AD778BC00021914 /* NSDate+WSCCocoaDate.m */,
 				83A2EFD91AD65B2600612A0C /* Vendor */,
@@ -440,6 +445,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8368F84C1ADC23350035C0D7 /* OTCPlace.m in Sources */,
 				835329E91AD8F57B00F37CFD /* OTCHashtag.m in Sources */,
 				83A2EF9E1AD658E300612A0C /* TALAppDelegate.m in Sources */,
 				835329F31AD91C3900F37CFD /* OTCUserMention.m in Sources */,
