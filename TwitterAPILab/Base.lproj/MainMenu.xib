@@ -20,6 +20,7 @@
                 <outlet property="fetchRequestToken" destination="lbS-Vh-ptS" id="A1h-BQ-Q1v"/>
                 <outlet property="inputPINTextField" destination="IHd-EO-43N" id="mkN-zp-rMF"/>
                 <outlet property="requestTokenLabel" destination="jys-iE-TZg" id="lQL-oc-CEf"/>
+                <outlet property="userScreenNameTextField" destination="XsM-LW-jZL" id="Iy2-SA-bWg"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -759,7 +760,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tf8-Fe-aQw">
-                        <rect key="frame" x="178" y="286" width="120" height="23"/>
+                        <rect key="frame" x="188" y="258" width="120" height="23"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="smallSquare" title="GET User Timeline" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2mZ-lw-GyH">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -769,6 +770,15 @@
                             <action selector="GETUserTimelineAction:" target="Voe-Tx-rLC" id="BDo-TU-p8N"/>
                         </connections>
                     </button>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XsM-LW-jZL">
+                        <rect key="frame" x="20" y="258" width="160" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="BotOfNSTongG" drawsBackground="YES" id="j8F-TG-fcK">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
         </window>

@@ -9,6 +9,7 @@
 #import "TALAppDelegate.h"
 #import "STTwitter.h"
 #import "OTCTweet.h"
+#import "NSColor+Objectwitter-C.h"
 
 @implementation TALAppDelegate
 
@@ -97,15 +98,16 @@
                                                errorBlock: ^( NSError* _Error ) { NSLog( @"%@", _Error ); } ];
     }
 
+@synthesize userScreenNameTextField;
 @synthesize GETUserTimelineButton;
 - ( IBAction ) GETUserTimelineAction: ( id )_Sender
     {
-    [ self.twitterAPI getUserTimelineWithScreenName: @"BotOfNSTongG"
+    [ self.twitterAPI getUserTimelineWithScreenName: userScreenNameTextField.stringValue
                                               count: 10
                                        successBlock:
         ^( NSArray* _Statuses )
             {
-            OTCTweet* status = [ OTCTweet tweetWithJSON: _Statuses[ 1 ] ];
+            OTCTweet* status = [ OTCTweet tweetWithJSON: _Statuses[ 0 ] ];
             NSLog( @"%@", status );
             }
                                              errorBlock: ^( NSError* _Error ) { NSLog( @"%@", _Error ); } ];

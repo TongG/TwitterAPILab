@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		835329E91AD8F57B00F37CFD /* OTCHashtag.m in Sources */ = {isa = PBXBuildFile; fileRef = 835329E81AD8F57B00F37CFD /* OTCHashtag.m */; };
-		835329EC1AD8FF8F00F37CFD /* OTCResolvedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 835329EB1AD8FF8F00F37CFD /* OTCResolvedObject.m */; };
-		835329F01AD919CD00F37CFD /* OTCFinancialSymbol.m in Sources */ = {isa = PBXBuildFile; fileRef = 835329EF1AD919CD00F37CFD /* OTCFinancialSymbol.m */; };
-		835329F31AD91C3900F37CFD /* OTCUserMention.m in Sources */ = {isa = PBXBuildFile; fileRef = 835329F21AD91C3900F37CFD /* OTCUserMention.m */; };
-		8368F84C1ADC23350035C0D7 /* OTCPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 8368F84B1ADC23350035C0D7 /* OTCPlace.m */; };
 		83A2EF8B1AD658E300612A0C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83A2EF8A1AD658E300612A0C /* Cocoa.framework */; };
 		83A2EF951AD658E300612A0C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83A2EF931AD658E300612A0C /* InfoPlist.strings */; };
 		83A2EF971AD658E300612A0C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A2EF961AD658E300612A0C /* main.m */; };
@@ -37,11 +32,19 @@
 		83A2EFEB1AD65B2700612A0C /* BAVPlistNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A2EFDB1AD65B2600612A0C /* BAVPlistNode.m */; };
 		83A2EFEC1AD65B2700612A0C /* JSONSyntaxHighlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A2EFDD1AD65B2700612A0C /* JSONSyntaxHighlight.m */; };
 		83A2EFED1AD65B2700612A0C /* STHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A2EFDF1AD65B2700612A0C /* STHTTPRequest.m */; };
-		83B5312E1AD76D4300021914 /* OTCTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B5312D1AD76D4300021914 /* OTCTweet.m */; };
-		83B531311AD778BC00021914 /* NSDate+WSCCocoaDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B531301AD778BC00021914 /* NSDate+WSCCocoaDate.m */; };
-		83B531341AD7C87E00021914 /* OTCEmbeddedURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B531331AD7C87E00021914 /* OTCEmbeddedURL.m */; };
-		83B531381AD7F0F200021914 /* _OTCGeneral.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B531371AD7F0F200021914 /* _OTCGeneral.m */; };
-		83C48BB91AD960A40095C22C /* OTCMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C48BB81AD960A40095C22C /* OTCMedia.m */; };
+		83F817221AFBA86C0000F949 /* _OTCGeneral.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F817081AFBA86C0000F949 /* _OTCGeneral.m */; };
+		83F817231AFBA86C0000F949 /* NSColor+Objectwitter-C.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F8170A1AFBA86C0000F949 /* NSColor+Objectwitter-C.m */; };
+		83F817241AFBA86C0000F949 /* NSDate+WSCCocoaDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F8170C1AFBA86C0000F949 /* NSDate+WSCCocoaDate.m */; };
+		83F817251AFBA86C0000F949 /* NSURL+Objectwitter-C.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F8170E1AFBA86C0000F949 /* NSURL+Objectwitter-C.m */; };
+		83F817261AFBA86C0000F949 /* OTCEmbeddedURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F817111AFBA86C0000F949 /* OTCEmbeddedURL.m */; };
+		83F817271AFBA86C0000F949 /* OTCFinancialSymbol.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F817131AFBA86C0000F949 /* OTCFinancialSymbol.m */; };
+		83F817281AFBA86C0000F949 /* OTCHashtag.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F817151AFBA86C0000F949 /* OTCHashtag.m */; };
+		83F817291AFBA86C0000F949 /* OTCMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F817171AFBA86C0000F949 /* OTCMedia.m */; };
+		83F8172A1AFBA86C0000F949 /* OTCPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F817191AFBA86C0000F949 /* OTCPlace.m */; };
+		83F8172B1AFBA86C0000F949 /* OTCResolvedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F8171B1AFBA86C0000F949 /* OTCResolvedObject.m */; };
+		83F8172C1AFBA86C0000F949 /* OTCTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F8171D1AFBA86C0000F949 /* OTCTweet.m */; };
+		83F8172D1AFBA86C0000F949 /* OTCTwitterUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F8171F1AFBA86C0000F949 /* OTCTwitterUser.m */; };
+		83F8172E1AFBA86C0000F949 /* OTCUserMention.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F817211AFBA86C0000F949 /* OTCUserMention.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,17 +79,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		835329E71AD8F57B00F37CFD /* OTCHashtag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTCHashtag.h; sourceTree = "<group>"; };
-		835329E81AD8F57B00F37CFD /* OTCHashtag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTCHashtag.m; sourceTree = "<group>"; };
-		835329EA1AD8FF8F00F37CFD /* OTCResolvedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTCResolvedObject.h; sourceTree = "<group>"; };
-		835329EB1AD8FF8F00F37CFD /* OTCResolvedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTCResolvedObject.m; sourceTree = "<group>"; };
-		835329ED1AD90A4800F37CFD /* Objectwitter-C.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Objectwitter-C.h"; sourceTree = "<group>"; };
-		835329EE1AD919CD00F37CFD /* OTCFinancialSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTCFinancialSymbol.h; sourceTree = "<group>"; };
-		835329EF1AD919CD00F37CFD /* OTCFinancialSymbol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTCFinancialSymbol.m; sourceTree = "<group>"; };
-		835329F11AD91C3900F37CFD /* OTCUserMention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTCUserMention.h; sourceTree = "<group>"; };
-		835329F21AD91C3900F37CFD /* OTCUserMention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTCUserMention.m; sourceTree = "<group>"; };
-		8368F84A1ADC23350035C0D7 /* OTCPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTCPlace.h; sourceTree = "<group>"; };
-		8368F84B1ADC23350035C0D7 /* OTCPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTCPlace.m; sourceTree = "<group>"; };
 		83A2EF871AD658E300612A0C /* TwitterAPILab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterAPILab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83A2EF8A1AD658E300612A0C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		83A2EF8D1AD658E300612A0C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -138,16 +130,33 @@
 		83A2EFDE1AD65B2700612A0C /* STHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STHTTPRequest.h; sourceTree = "<group>"; };
 		83A2EFDF1AD65B2700612A0C /* STHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STHTTPRequest.m; sourceTree = "<group>"; };
 		83A2EFEE1AD65B4200612A0C /* TwitterAPILab.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TwitterAPILab.entitlements; sourceTree = "<group>"; };
-		83B5312C1AD76D4300021914 /* OTCTweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTCTweet.h; sourceTree = "<group>"; };
-		83B5312D1AD76D4300021914 /* OTCTweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTCTweet.m; sourceTree = "<group>"; };
-		83B5312F1AD778BC00021914 /* NSDate+WSCCocoaDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+WSCCocoaDate.h"; sourceTree = "<group>"; };
-		83B531301AD778BC00021914 /* NSDate+WSCCocoaDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+WSCCocoaDate.m"; sourceTree = "<group>"; };
-		83B531321AD7C87E00021914 /* OTCEmbeddedURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTCEmbeddedURL.h; sourceTree = "<group>"; };
-		83B531331AD7C87E00021914 /* OTCEmbeddedURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTCEmbeddedURL.m; sourceTree = "<group>"; };
-		83B531361AD7F0E300021914 /* _OTCGeneral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _OTCGeneral.h; sourceTree = "<group>"; };
-		83B531371AD7F0F200021914 /* _OTCGeneral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _OTCGeneral.m; sourceTree = "<group>"; };
-		83C48BB71AD960A40095C22C /* OTCMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTCMedia.h; sourceTree = "<group>"; };
-		83C48BB81AD960A40095C22C /* OTCMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTCMedia.m; sourceTree = "<group>"; };
+		83F817071AFBA86C0000F949 /* _OTCGeneral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _OTCGeneral.h; path = "Objectwitter-C/Objectwitter-C/_OTCGeneral.h"; sourceTree = SOURCE_ROOT; };
+		83F817081AFBA86C0000F949 /* _OTCGeneral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _OTCGeneral.m; path = "Objectwitter-C/Objectwitter-C/_OTCGeneral.m"; sourceTree = SOURCE_ROOT; };
+		83F817091AFBA86C0000F949 /* NSColor+Objectwitter-C.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSColor+Objectwitter-C.h"; path = "Objectwitter-C/Objectwitter-C/NSColor+Objectwitter-C.h"; sourceTree = SOURCE_ROOT; };
+		83F8170A1AFBA86C0000F949 /* NSColor+Objectwitter-C.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSColor+Objectwitter-C.m"; path = "Objectwitter-C/Objectwitter-C/NSColor+Objectwitter-C.m"; sourceTree = SOURCE_ROOT; };
+		83F8170B1AFBA86C0000F949 /* NSDate+WSCCocoaDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+WSCCocoaDate.h"; path = "Objectwitter-C/Objectwitter-C/NSDate+WSCCocoaDate.h"; sourceTree = SOURCE_ROOT; };
+		83F8170C1AFBA86C0000F949 /* NSDate+WSCCocoaDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+WSCCocoaDate.m"; path = "Objectwitter-C/Objectwitter-C/NSDate+WSCCocoaDate.m"; sourceTree = SOURCE_ROOT; };
+		83F8170D1AFBA86C0000F949 /* NSURL+Objectwitter-C.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURL+Objectwitter-C.h"; path = "Objectwitter-C/Objectwitter-C/NSURL+Objectwitter-C.h"; sourceTree = SOURCE_ROOT; };
+		83F8170E1AFBA86C0000F949 /* NSURL+Objectwitter-C.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURL+Objectwitter-C.m"; path = "Objectwitter-C/Objectwitter-C/NSURL+Objectwitter-C.m"; sourceTree = SOURCE_ROOT; };
+		83F8170F1AFBA86C0000F949 /* Objectwitter-C.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Objectwitter-C.h"; path = "Objectwitter-C/Objectwitter-C/Objectwitter-C.h"; sourceTree = SOURCE_ROOT; };
+		83F817101AFBA86C0000F949 /* OTCEmbeddedURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTCEmbeddedURL.h; path = "Objectwitter-C/Objectwitter-C/OTCEmbeddedURL.h"; sourceTree = SOURCE_ROOT; };
+		83F817111AFBA86C0000F949 /* OTCEmbeddedURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OTCEmbeddedURL.m; path = "Objectwitter-C/Objectwitter-C/OTCEmbeddedURL.m"; sourceTree = SOURCE_ROOT; };
+		83F817121AFBA86C0000F949 /* OTCFinancialSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTCFinancialSymbol.h; path = "Objectwitter-C/Objectwitter-C/OTCFinancialSymbol.h"; sourceTree = SOURCE_ROOT; };
+		83F817131AFBA86C0000F949 /* OTCFinancialSymbol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OTCFinancialSymbol.m; path = "Objectwitter-C/Objectwitter-C/OTCFinancialSymbol.m"; sourceTree = SOURCE_ROOT; };
+		83F817141AFBA86C0000F949 /* OTCHashtag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTCHashtag.h; path = "Objectwitter-C/Objectwitter-C/OTCHashtag.h"; sourceTree = SOURCE_ROOT; };
+		83F817151AFBA86C0000F949 /* OTCHashtag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OTCHashtag.m; path = "Objectwitter-C/Objectwitter-C/OTCHashtag.m"; sourceTree = SOURCE_ROOT; };
+		83F817161AFBA86C0000F949 /* OTCMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTCMedia.h; path = "Objectwitter-C/Objectwitter-C/OTCMedia.h"; sourceTree = SOURCE_ROOT; };
+		83F817171AFBA86C0000F949 /* OTCMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OTCMedia.m; path = "Objectwitter-C/Objectwitter-C/OTCMedia.m"; sourceTree = SOURCE_ROOT; };
+		83F817181AFBA86C0000F949 /* OTCPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTCPlace.h; path = "Objectwitter-C/Objectwitter-C/OTCPlace.h"; sourceTree = SOURCE_ROOT; };
+		83F817191AFBA86C0000F949 /* OTCPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OTCPlace.m; path = "Objectwitter-C/Objectwitter-C/OTCPlace.m"; sourceTree = SOURCE_ROOT; };
+		83F8171A1AFBA86C0000F949 /* OTCResolvedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTCResolvedObject.h; path = "Objectwitter-C/Objectwitter-C/OTCResolvedObject.h"; sourceTree = SOURCE_ROOT; };
+		83F8171B1AFBA86C0000F949 /* OTCResolvedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OTCResolvedObject.m; path = "Objectwitter-C/Objectwitter-C/OTCResolvedObject.m"; sourceTree = SOURCE_ROOT; };
+		83F8171C1AFBA86C0000F949 /* OTCTweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTCTweet.h; path = "Objectwitter-C/Objectwitter-C/OTCTweet.h"; sourceTree = SOURCE_ROOT; };
+		83F8171D1AFBA86C0000F949 /* OTCTweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OTCTweet.m; path = "Objectwitter-C/Objectwitter-C/OTCTweet.m"; sourceTree = SOURCE_ROOT; };
+		83F8171E1AFBA86C0000F949 /* OTCTwitterUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTCTwitterUser.h; path = "Objectwitter-C/Objectwitter-C/OTCTwitterUser.h"; sourceTree = SOURCE_ROOT; };
+		83F8171F1AFBA86C0000F949 /* OTCTwitterUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OTCTwitterUser.m; path = "Objectwitter-C/Objectwitter-C/OTCTwitterUser.m"; sourceTree = SOURCE_ROOT; };
+		83F817201AFBA86C0000F949 /* OTCUserMention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTCUserMention.h; path = "Objectwitter-C/Objectwitter-C/OTCUserMention.h"; sourceTree = SOURCE_ROOT; };
+		83F817211AFBA86C0000F949 /* OTCUserMention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OTCUserMention.m; path = "Objectwitter-C/Objectwitter-C/OTCUserMention.m"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,25 +300,31 @@
 				83A2EFD61AD65B2600612A0C /* STTwitterRequestProtocol.h */,
 				83A2EFD71AD65B2600612A0C /* STTwitterStreamParser.h */,
 				83A2EFD81AD65B2600612A0C /* STTwitterStreamParser.m */,
-				835329ED1AD90A4800F37CFD /* Objectwitter-C.h */,
-				83B5312C1AD76D4300021914 /* OTCTweet.h */,
-				83B5312D1AD76D4300021914 /* OTCTweet.m */,
-				835329EA1AD8FF8F00F37CFD /* OTCResolvedObject.h */,
-				835329EB1AD8FF8F00F37CFD /* OTCResolvedObject.m */,
-				835329E71AD8F57B00F37CFD /* OTCHashtag.h */,
-				835329E81AD8F57B00F37CFD /* OTCHashtag.m */,
-				835329EE1AD919CD00F37CFD /* OTCFinancialSymbol.h */,
-				835329EF1AD919CD00F37CFD /* OTCFinancialSymbol.m */,
-				83B531321AD7C87E00021914 /* OTCEmbeddedURL.h */,
-				83B531331AD7C87E00021914 /* OTCEmbeddedURL.m */,
-				835329F11AD91C3900F37CFD /* OTCUserMention.h */,
-				835329F21AD91C3900F37CFD /* OTCUserMention.m */,
-				83C48BB71AD960A40095C22C /* OTCMedia.h */,
-				83C48BB81AD960A40095C22C /* OTCMedia.m */,
-				8368F84A1ADC23350035C0D7 /* OTCPlace.h */,
-				8368F84B1ADC23350035C0D7 /* OTCPlace.m */,
-				83B5312F1AD778BC00021914 /* NSDate+WSCCocoaDate.h */,
-				83B531301AD778BC00021914 /* NSDate+WSCCocoaDate.m */,
+				83F817091AFBA86C0000F949 /* NSColor+Objectwitter-C.h */,
+				83F8170A1AFBA86C0000F949 /* NSColor+Objectwitter-C.m */,
+				83F8170B1AFBA86C0000F949 /* NSDate+WSCCocoaDate.h */,
+				83F8170C1AFBA86C0000F949 /* NSDate+WSCCocoaDate.m */,
+				83F8170D1AFBA86C0000F949 /* NSURL+Objectwitter-C.h */,
+				83F8170E1AFBA86C0000F949 /* NSURL+Objectwitter-C.m */,
+				83F8170F1AFBA86C0000F949 /* Objectwitter-C.h */,
+				83F817101AFBA86C0000F949 /* OTCEmbeddedURL.h */,
+				83F817111AFBA86C0000F949 /* OTCEmbeddedURL.m */,
+				83F817121AFBA86C0000F949 /* OTCFinancialSymbol.h */,
+				83F817131AFBA86C0000F949 /* OTCFinancialSymbol.m */,
+				83F817141AFBA86C0000F949 /* OTCHashtag.h */,
+				83F817151AFBA86C0000F949 /* OTCHashtag.m */,
+				83F817161AFBA86C0000F949 /* OTCMedia.h */,
+				83F817171AFBA86C0000F949 /* OTCMedia.m */,
+				83F817181AFBA86C0000F949 /* OTCPlace.h */,
+				83F817191AFBA86C0000F949 /* OTCPlace.m */,
+				83F8171A1AFBA86C0000F949 /* OTCResolvedObject.h */,
+				83F8171B1AFBA86C0000F949 /* OTCResolvedObject.m */,
+				83F8171C1AFBA86C0000F949 /* OTCTweet.h */,
+				83F8171D1AFBA86C0000F949 /* OTCTweet.m */,
+				83F8171E1AFBA86C0000F949 /* OTCTwitterUser.h */,
+				83F8171F1AFBA86C0000F949 /* OTCTwitterUser.m */,
+				83F817201AFBA86C0000F949 /* OTCUserMention.h */,
+				83F817211AFBA86C0000F949 /* OTCUserMention.m */,
 				83A2EFD91AD65B2600612A0C /* Vendor */,
 			);
 			name = STTwitter;
@@ -332,8 +347,8 @@
 		83B531351AD7F0D000021914 /* Private */ = {
 			isa = PBXGroup;
 			children = (
-				83B531361AD7F0E300021914 /* _OTCGeneral.h */,
-				83B531371AD7F0F200021914 /* _OTCGeneral.m */,
+				83F817071AFBA86C0000F949 /* _OTCGeneral.h */,
+				83F817081AFBA86C0000F949 /* _OTCGeneral.m */,
 			);
 			name = Private;
 			sourceTree = "<group>";
@@ -445,30 +460,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8368F84C1ADC23350035C0D7 /* OTCPlace.m in Sources */,
-				835329E91AD8F57B00F37CFD /* OTCHashtag.m in Sources */,
+				83F8172A1AFBA86C0000F949 /* OTCPlace.m in Sources */,
 				83A2EF9E1AD658E300612A0C /* TALAppDelegate.m in Sources */,
-				835329F31AD91C3900F37CFD /* OTCUserMention.m in Sources */,
+				83F817291AFBA86C0000F949 /* OTCMedia.m in Sources */,
+				83F817281AFBA86C0000F949 /* OTCHashtag.m in Sources */,
 				83A2EFE21AD65B2700612A0C /* NSString+STTwitter.m in Sources */,
 				83A2EFE51AD65B2700612A0C /* STTwitterAppOnly.m in Sources */,
 				83A2EF971AD658E300612A0C /* main.m in Sources */,
 				83A2EFEB1AD65B2700612A0C /* BAVPlistNode.m in Sources */,
+				83F8172B1AFBA86C0000F949 /* OTCResolvedObject.m in Sources */,
 				83A2EFE91AD65B2700612A0C /* STTwitterOSRequest.m in Sources */,
+				83F817261AFBA86C0000F949 /* OTCEmbeddedURL.m in Sources */,
 				83A2EFE71AD65B2700612A0C /* STTwitterOAuth.m in Sources */,
-				83C48BB91AD960A40095C22C /* OTCMedia.m in Sources */,
-				83B531381AD7F0F200021914 /* _OTCGeneral.m in Sources */,
+				83F8172C1AFBA86C0000F949 /* OTCTweet.m in Sources */,
 				83A2EFE81AD65B2700612A0C /* STTwitterOS.m in Sources */,
+				83F8172D1AFBA86C0000F949 /* OTCTwitterUser.m in Sources */,
 				83A2EFEA1AD65B2700612A0C /* STTwitterStreamParser.m in Sources */,
-				83B531341AD7C87E00021914 /* OTCEmbeddedURL.m in Sources */,
+				83F8172E1AFBA86C0000F949 /* OTCUserMention.m in Sources */,
+				83F817241AFBA86C0000F949 /* NSDate+WSCCocoaDate.m in Sources */,
+				83F817221AFBA86C0000F949 /* _OTCGeneral.m in Sources */,
 				83A2EFE11AD65B2700612A0C /* NSError+STTwitter.m in Sources */,
-				83B531311AD778BC00021914 /* NSDate+WSCCocoaDate.m in Sources */,
 				83A2EFED1AD65B2700612A0C /* STHTTPRequest.m in Sources */,
+				83F817251AFBA86C0000F949 /* NSURL+Objectwitter-C.m in Sources */,
+				83F817271AFBA86C0000F949 /* OTCFinancialSymbol.m in Sources */,
 				83A2EFE01AD65B2700612A0C /* NSDateFormatter+STTwitter.m in Sources */,
-				83B5312E1AD76D4300021914 /* OTCTweet.m in Sources */,
-				835329EC1AD8FF8F00F37CFD /* OTCResolvedObject.m in Sources */,
 				83A2EFEC1AD65B2700612A0C /* JSONSyntaxHighlight.m in Sources */,
 				83A2EFE61AD65B2700612A0C /* STTwitterHTML.m in Sources */,
-				835329F01AD919CD00F37CFD /* OTCFinancialSymbol.m in Sources */,
+				83F817231AFBA86C0000F949 /* NSColor+Objectwitter-C.m in Sources */,
 				83A2EFE31AD65B2700612A0C /* STHTTPRequest+STTwitter.m in Sources */,
 				83A2EFE41AD65B2700612A0C /* STTwitterAPI.m in Sources */,
 			);
