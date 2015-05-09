@@ -35,7 +35,6 @@
 		83F817221AFBA86C0000F949 /* _OTCGeneral.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F817081AFBA86C0000F949 /* _OTCGeneral.m */; };
 		83F817231AFBA86C0000F949 /* NSColor+Objectwitter-C.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F8170A1AFBA86C0000F949 /* NSColor+Objectwitter-C.m */; };
 		83F817241AFBA86C0000F949 /* NSDate+WSCCocoaDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F8170C1AFBA86C0000F949 /* NSDate+WSCCocoaDate.m */; };
-		83F817251AFBA86C0000F949 /* NSURL+Objectwitter-C.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F8170E1AFBA86C0000F949 /* NSURL+Objectwitter-C.m */; };
 		83F817261AFBA86C0000F949 /* OTCEmbeddedURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F817111AFBA86C0000F949 /* OTCEmbeddedURL.m */; };
 		83F817271AFBA86C0000F949 /* OTCFinancialSymbol.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F817131AFBA86C0000F949 /* OTCFinancialSymbol.m */; };
 		83F817281AFBA86C0000F949 /* OTCHashtag.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F817151AFBA86C0000F949 /* OTCHashtag.m */; };
@@ -136,8 +135,6 @@
 		83F8170A1AFBA86C0000F949 /* NSColor+Objectwitter-C.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSColor+Objectwitter-C.m"; path = "Objectwitter-C/Objectwitter-C/NSColor+Objectwitter-C.m"; sourceTree = SOURCE_ROOT; };
 		83F8170B1AFBA86C0000F949 /* NSDate+WSCCocoaDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+WSCCocoaDate.h"; path = "Objectwitter-C/Objectwitter-C/NSDate+WSCCocoaDate.h"; sourceTree = SOURCE_ROOT; };
 		83F8170C1AFBA86C0000F949 /* NSDate+WSCCocoaDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+WSCCocoaDate.m"; path = "Objectwitter-C/Objectwitter-C/NSDate+WSCCocoaDate.m"; sourceTree = SOURCE_ROOT; };
-		83F8170D1AFBA86C0000F949 /* NSURL+Objectwitter-C.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURL+Objectwitter-C.h"; path = "Objectwitter-C/Objectwitter-C/NSURL+Objectwitter-C.h"; sourceTree = SOURCE_ROOT; };
-		83F8170E1AFBA86C0000F949 /* NSURL+Objectwitter-C.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURL+Objectwitter-C.m"; path = "Objectwitter-C/Objectwitter-C/NSURL+Objectwitter-C.m"; sourceTree = SOURCE_ROOT; };
 		83F8170F1AFBA86C0000F949 /* Objectwitter-C.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Objectwitter-C.h"; path = "Objectwitter-C/Objectwitter-C/Objectwitter-C.h"; sourceTree = SOURCE_ROOT; };
 		83F817101AFBA86C0000F949 /* OTCEmbeddedURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTCEmbeddedURL.h; path = "Objectwitter-C/Objectwitter-C/OTCEmbeddedURL.h"; sourceTree = SOURCE_ROOT; };
 		83F817111AFBA86C0000F949 /* OTCEmbeddedURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OTCEmbeddedURL.m; path = "Objectwitter-C/Objectwitter-C/OTCEmbeddedURL.m"; sourceTree = SOURCE_ROOT; };
@@ -304,8 +301,6 @@
 				83F8170A1AFBA86C0000F949 /* NSColor+Objectwitter-C.m */,
 				83F8170B1AFBA86C0000F949 /* NSDate+WSCCocoaDate.h */,
 				83F8170C1AFBA86C0000F949 /* NSDate+WSCCocoaDate.m */,
-				83F8170D1AFBA86C0000F949 /* NSURL+Objectwitter-C.h */,
-				83F8170E1AFBA86C0000F949 /* NSURL+Objectwitter-C.m */,
 				83F8170F1AFBA86C0000F949 /* Objectwitter-C.h */,
 				83F817101AFBA86C0000F949 /* OTCEmbeddedURL.h */,
 				83F817111AFBA86C0000F949 /* OTCEmbeddedURL.m */,
@@ -481,7 +476,6 @@
 				83F817221AFBA86C0000F949 /* _OTCGeneral.m in Sources */,
 				83A2EFE11AD65B2700612A0C /* NSError+STTwitter.m in Sources */,
 				83A2EFED1AD65B2700612A0C /* STHTTPRequest.m in Sources */,
-				83F817251AFBA86C0000F949 /* NSURL+Objectwitter-C.m in Sources */,
 				83F817271AFBA86C0000F949 /* OTCFinancialSymbol.m in Sources */,
 				83A2EFE01AD65B2700612A0C /* NSDateFormatter+STTwitter.m in Sources */,
 				83A2EFEC1AD65B2700612A0C /* JSONSyntaxHighlight.m in Sources */,

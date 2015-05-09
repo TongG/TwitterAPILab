@@ -7,12 +7,17 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "Objectwitter-C.h"
 
 @class STTwitterAPI;
 
 @interface TALAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
+
+@property ( copy ) NSURLSession* defaultSession;
+    @property ( strong ) NSURLSessionDataTask* dataTask;
+    @property ( retain ) NSMutableData* receivedData;
 
 @property ( retain ) STTwitterAPI* twitterAPI;
     @property ( copy ) NSString* consumerName;
@@ -38,4 +43,17 @@
 @property ( weak ) IBOutlet NSButton* GETUserTimelineButton;
 - ( IBAction ) GETUserTimelineAction: ( id )_Sender;
 
+@property ( weak ) IBOutlet NSTextField* userIDTextField;
+@property ( weak ) IBOutlet NSButton* fetchUserTimelineWithStreamingAPIButton;
+
+@property (nonatomic, retain) STTwitterStreamParser *streamParser;
+
 @end
+
+NSString* TGSignWithHMACSHA1( NSString* _SignatureBaseString, NSString* _SigningKey );
+NSString* TGTimestamp();
+NSString* TGNonce();
+NSString* TGSignatureBaseString( NSString* _HTTPMethod, NSURL* _APIURL, NSArray* _RequestParams );
+NSString* TGPercentEncodeString( NSString* _String );
+NSString* TGPercentEncodeURL( NSURL* _URL );
+NSString* TGAuthorizationHeaders( NSArray* _RequestParams );

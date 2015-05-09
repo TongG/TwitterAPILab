@@ -6,8 +6,8 @@
 //
 //
 
+#import <CommonCrypto/CommonHMAC.h>
 #import "TALAppDelegate.h"
-#import "STTwitter.h"
 #import "OTCTweet.h"
 #import "NSColor+Objectwitter-C.h"
 
@@ -39,6 +39,10 @@
                                                       consumerSecret: self.consumerSecret
                                                           oauthToken: accessTokenComponents.firstObject
                                                     oauthTokenSecret: accessTokenComponents.lastObject ];
+
+    NSURLSessionConfiguration* defaultConfig = [ NSURLSessionConfiguration defaultSessionConfiguration ];
+    self.defaultSession = [ NSURLSession sessionWithConfiguration: defaultConfig ];
+    self.receivedData = [ NSMutableData data ];
     }
 
 #pragma mark Authorizaton
@@ -98,6 +102,168 @@
                                                errorBlock: ^( NSError* _Error ) { NSLog( @"%@", _Error ); } ];
     }
 
+- ( IBAction ) fetchHomeTimelineAction: ( id )_Sender
+    {
+    self.streamParser = [[STTwitterStreamParser alloc] init];
+    __weak STTwitterStreamParser *streamParser = self.streamParser;
+
+    [ self.twitterAPI getResource: @"user.json"
+                    baseURLString: @"https://userstream.twitter.com/1.1"
+                       parameters: @{ @"stringify_friend_ids" : @"1"
+                                    , @"delimited" : @"length"
+                                    , @"stall_warnings" : @"0"
+                                    , @"with" : @"followings"
+                                    , @"language" : @"en,zh,fr"
+                                    , @"track" : @"🇺🇸"
+                                    , @"replies" : @"all"
+                                    }
+            downloadProgressBlock:
+                ^( id response )
+                    {
+                    [streamParser parseWithStreamData:response parsedJSONBlock:^(NSDictionary *json, STTwitterStreamJSONType _JSONType )
+                        {
+                        NSLog( @"%@", [ OTCTweet tweetWithJSON: json ].tweetText );
+                        } ];
+                    }
+                     successBlock: ^(NSDictionary *rateLimits, id json) { }
+                       errorBlock: ^( NSError* _Error ) {} ];
+
+//    [ self.twitterAPI getUserStreamIncludeMessagesFromFollowedAccounts: @NO
+//                                                        includeReplies: @NO
+//                                                       keywordsToTrack: @[ @"中国" ]
+//                                                 locationBoundingBoxes: nil
+//                                                            tweetBlock:
+//        ^( NSDictionary* _Tweet )
+//            {
+//            NSLog( @"%@", [ OTCTweet tweetWithJSON: _Tweet ].tweetText );
+//            }
+//                                                     stallWarningBlock:
+//                                                     ^( NSString* _Code, NSString* _Message, NSUInteger _PercentFull )
+//                                                        {
+//                                                        NSLog( @"..." );
+//                                                        NSLog( @"Code: %@", _Code );
+//                                                        NSLog( @"Message: %@", _Message );
+//                                                        NSLog( @"Percent Full: %lu", _PercentFull );
+//                                                        NSLog( @"..." );
+//                                                        }
+//                                                            errorBlock: ^( NSError* _Error )
+//                                                                    {
+//                                                                    NSLog( @"Error: %@", _Error );
+//                                                                    } ];
+    }
+
+- ( IBAction ) fetchUserTimelineWithStreamingAPIAction: ( id )_Sender
+    {
+    self.streamParser = [[STTwitterStreamParser alloc] init];
+    __weak STTwitterStreamParser *streamParser = self.streamParser;
+
+    [ self.twitterAPI getResource: @"statuses/filter.json"
+                    baseURLString: @"https://stream.twitter.com/1.1"
+                       parameters: @{ @"stringify_friend_ids" : @"1"
+                                    , @"delimited" : @"length"
+                                    , @"stall_warnings" : @"0"
+//                                    , @"count" : @"20"
+                                    , @"track" : @"GNOME Asia"
+//                                    , @"with" : @"followings"
+//                                    , @"language" : @"en,zh,fr"
+                                    , @"follow" : [ NSString stringWithFormat: @"%@", self.userIDTextField.stringValue/*, @"3166701426" */]
+                                    }
+            downloadProgressBlock:
+                ^( id response )
+                    {
+                    [streamParser parseWithStreamData:response parsedJSONBlock:^(NSDictionary *json, STTwitterStreamJSONType _JSONType )
+                        {
+                        NSLog( @"%@", [ OTCTweet tweetWithJSON: json ].tweetText );
+                        } ];
+                    }
+                    successBlock: ^(NSDictionary *rateLimits, id json) { }
+                    errorBlock: ^( NSError* _Error ) { NSLog( @"%@", _Error ); } ];
+
+//    [ self.twitterAPI postStatusesFilterKeyword: @"🇨🇳,🇺🇸,Microsoft Apple"
+//                                     tweetBlock:
+//        ^( NSDictionary* _TweetJSON )
+//            {
+//            NSLog( @"%@", [ OTCTweet tweetWithJSON: _TweetJSON ].tweetText );
+//            } errorBlock: ^( NSError* _Error ) { NSLog( @"%@", _Error ); } ];
+    }
+
+- ( IBAction ) fetchHomeTimelineWithManualOAuthSigning: ( id )_Sender
+    {
+    NSURL* baseURL = [ NSURL URLWithString: @"https://api.twitter.com/oauth/access_token" ];
+
+//    NSString* PINCode = [ self.PINField stringValue ];
+
+    NSString* requestURLPath = self.requestTokenLabel.stringValue;
+    NSArray* components = [ requestURLPath componentsSeparatedByString: @"&" ];
+
+    NSMutableString* requestToken = nil;
+    NSMutableString* requestTokenSecret = nil;
+    for ( int _Index = 0; _Index < 2; _Index++ )
+        {
+        NSArray* subComponents = [ components[ _Index ] componentsSeparatedByString: @"=" ];
+
+        if ( _Index == 0 )
+            requestToken = subComponents.lastObject;
+        else if ( _Index == 1 )
+            requestTokenSecret = subComponents.lastObject;
+        }
+
+    NSString* HTTPMethod = @"POST";
+    NSString* OAuthCallback = @"oob";
+    NSString* OAuthConsumerKey = @"hgHSOcN9Qc4S0W3MXykn7ajUi";
+    NSString* OAuthNonce = TGNonce();
+    NSString* OAuthRequestToken = requestToken;
+    NSString* OAuthSignatureMethod = @"HMAC-SHA1";
+    NSString* OAuthTimestamp = TGTimestamp();
+//    NSString* OAuthPINCode = PINCode;
+    NSString* OAuthVersion = @"1.0";
+
+    NSArray* requestParameters = @[ @{ @"oauth_callback" : OAuthCallback }
+                                  , @{ @"oauth_consumer_key" : OAuthConsumerKey }
+                                  , @{ @"oauth_nonce" : OAuthNonce }
+                                  , @{ @"oauth_signature_method" : OAuthSignatureMethod }
+                                  , @{ @"oauth_timestamp" : OAuthTimestamp }
+                                  , @{ @"oauth_token" : OAuthRequestToken }
+//                                  , @{ @"oauth_verifier" : OAuthPINCode }
+                                  , @{ @"oauth_version" : OAuthVersion }
+                                  ];
+
+    NSString* signatureBaseString = TGSignatureBaseString( HTTPMethod, baseURL, requestParameters );
+
+    NSString* consumerSecret = [ NSString stringWithContentsOfFile: [ NSHomeDirectory() stringByAppendingString: @"/Pictures/consumer_secret.txt" ]
+                                                          encoding: NSUTF8StringEncoding
+                                                             error: nil ];
+    NSString* OAuthSignature = nil;
+    NSMutableString* signingKey = [ NSMutableString stringWithFormat: @"%@&%@", consumerSecret, requestTokenSecret ];
+    OAuthSignature = TGSignWithHMACSHA1( signatureBaseString, signingKey );
+    OAuthSignature = TGPercentEncodeString( OAuthSignature );
+
+    NSString* authorizationHeader = TGAuthorizationHeaders( [ requestParameters arrayByAddingObject: @{ @"oauth_signature" : OAuthSignature } ] );
+
+    NSMutableURLRequest* tokenRequest = [ NSMutableURLRequest requestWithURL: baseURL ];
+    [ tokenRequest setHTTPMethod: @"POST" ];
+    [ tokenRequest setValue: authorizationHeader forHTTPHeaderField: @"Authorization" ];
+    self.dataTask = [ self.defaultSession dataTaskWithRequest: tokenRequest
+                                            completionHandler:
+        ^( NSData* _Body, NSURLResponse* _Response, NSError* _Error )
+            {
+            NSError* error = nil;
+            if ( !error )
+                {
+                if ( _Body.length )
+                    {
+                    NSString* token = [ [ NSString alloc ] initWithData: _Body encoding: NSUTF8StringEncoding ];
+                    [ self.accessTokenLabel setStringValue: token ];
+                    }
+                }
+            else
+                [ self performSelectorOnMainThread: @selector( presentError: ) withObject: error waitUntilDone: YES ];
+            } ];
+
+    [ self.dataTask resume ];
+
+    }
+
 @synthesize userScreenNameTextField;
 @synthesize GETUserTimelineButton;
 - ( IBAction ) GETUserTimelineAction: ( id )_Sender
@@ -114,3 +280,115 @@
     }
 
 @end
+
+NSString* TGSignWithHMACSHA1( NSString* _SignatureBaseString, NSString* _SigningKey )
+    {
+    unsigned char buffer[ CC_SHA1_DIGEST_LENGTH ];
+    CCHmac( kCCHmacAlgSHA1
+          , _SigningKey.UTF8String, _SigningKey.length
+          , _SignatureBaseString.UTF8String, _SignatureBaseString.length
+          , buffer
+          );
+
+    NSData* signatureData = [ NSData dataWithBytes: buffer length: CC_SHA1_DIGEST_LENGTH ];
+    NSString* base64 = [ signatureData base64EncodedStringWithOptions: NSDataBase64Encoding64CharacterLineLength ];
+
+    return base64;
+    }
+
+NSString* TGTimestamp()
+    {
+    NSTimeInterval UnixEpoch = [ [ NSDate date ] timeIntervalSince1970 ];
+    NSString* timestamp = [ NSString stringWithFormat: @"%lu", ( NSUInteger )floor( UnixEpoch ) ];
+    return timestamp;
+    }
+
+NSString* TGNonce()
+    {
+    CFUUIDRef UUID = CFUUIDCreate( kCFAllocatorDefault );
+    CFStringRef cfStringRep = CFUUIDCreateString( kCFAllocatorDefault, UUID ) ;
+    NSString* stringRepresentation = [ ( __bridge NSString* )cfStringRep copy ];
+
+    if ( UUID )
+        CFRelease( UUID );
+
+    if ( cfStringRep )
+        CFRelease( cfStringRep );
+
+    return stringRepresentation;
+    }
+
+NSString* TGSignatureBaseString( NSString* _HTTPMethod, NSURL* _APIURL, NSArray* _RequestParams )
+    {
+    NSMutableString* signatureBaseString = [ NSMutableString stringWithString: _HTTPMethod ];
+    [ signatureBaseString appendString: @"&" ];
+    [ signatureBaseString appendString: TGPercentEncodeURL( _APIURL ) ];
+    [ signatureBaseString appendString: @"&" ];
+
+    for ( NSDictionary* _Param in _RequestParams )
+        {
+        NSString* key = [ _Param allKeys ].firstObject;
+        [ signatureBaseString appendString: key ];
+        [ signatureBaseString appendString: TGPercentEncodeString( @"=" ) ];
+        [ signatureBaseString appendString: TGPercentEncodeString( _Param[ key ] ) ];
+        [ signatureBaseString appendString: TGPercentEncodeString( @"&" ) ];
+        }
+
+    [ signatureBaseString deleteCharactersInRange: NSMakeRange( signatureBaseString.length - 3, 3 ) ];
+    return [ signatureBaseString copy ];
+    }
+
+NSString* TGPercentEncodeString( NSString* _String )
+    {
+    NSArray* reservedChars = @[ @"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9"
+
+                              , @"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M"
+                              , @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z"
+
+                              , @"a", @"b", @"c", @"d", @"e", @"f", @"g", @"h", @"i", @"j", @"k", @"l", @"m"
+                              , @"n", @"o", @"p", @"q", @"r", @"s", @"t", @"u", @"v", @"w", @"x", @"y", @"z"
+
+                              , @"-", @".", @"_", @"~"
+                              ];
+
+    NSMutableString* percentEncodedString = [ NSMutableString string ];
+    for ( int _Index = 0; _Index < _String.length; _Index++ )
+        {
+        NSString* charElem = [ _String substringWithRange: NSMakeRange( _Index, 1 ) ];
+
+        if ( [ reservedChars containsObject: charElem ] )
+            [ percentEncodedString appendString: charElem ];
+        else
+            {
+            char const* UTF8Char = [ charElem UTF8String ];
+            NSMutableString* percentEncodedChar = [ NSMutableString stringWithString: @"%" ];
+            [ percentEncodedChar appendString: [ NSString stringWithFormat: @"%x", *UTF8Char ] ];
+            percentEncodedChar = [ percentEncodedChar.uppercaseString mutableCopy ];
+
+            [ percentEncodedString appendString: percentEncodedChar ];
+            }
+        }
+
+    return percentEncodedString;
+    }
+
+NSString* TGPercentEncodeURL( NSURL* _URL )
+    {
+    NSString* absoluteString = [ _URL absoluteString ];
+    return TGPercentEncodeString( absoluteString );
+    }
+
+NSString* TGAuthorizationHeaders( NSArray* _RequestParams )
+    {
+    NSMutableString* authorizationHeader = [ NSMutableString stringWithFormat: @"OAuth " ];
+
+    for ( NSDictionary* _Param in _RequestParams )
+        {
+        NSString* key = [ _Param allKeys ].firstObject;
+        [ authorizationHeader appendString: [ NSString stringWithFormat: @"%@=\"%@\", ", key, _Param[ key ] ] ];
+        }
+
+    [ authorizationHeader deleteCharactersInRange: NSMakeRange( authorizationHeader.length - 1, 1 ) ];
+
+    return [ authorizationHeader copy ];
+    }
