@@ -194,13 +194,12 @@
     NSURL* APIURL = [ NSURL URLWithString: @"https://stream.twitter.com/1.1/statuses/filter.json" ];
 
     NSString* HTTPMethod = @"POST";
-//    NSString* nonce = TGNonce();
     NSMutableArray* requestParameters = [ NSMutableArray arrayWithObjects:
                                     @{ @"delimited" : @"length" }
                                   , @{ @"oauth_consumer_key" : self.consumerKey }
-                                  , @{ @"oauth_nonce" : @"42F1B484-D039-4D58-971F-13D73FA3" }
+                                  , @{ @"oauth_nonce" : TGNonce() }
                                   , @{ @"oauth_signature_method" : @"HMAC-SHA1" }
-                                  , @{ @"oauth_timestamp" : @"1431192794" }
+                                  , @{ @"oauth_timestamp" : TGTimestamp() }
                                   , @{ @"oauth_token" : self.twitterAPI.oauthAccessToken }
                                   , @{ @"oauth_version" : @"1.0" }
                                   , @{ @"stall_warnings" : @"0" }
@@ -223,22 +222,8 @@
     [ request addValue: [ NSString stringWithFormat: @"%u", ( unsigned int )[ bodyData length ] ] forHTTPHeaderField: @"Content-Length" ];
     [ request setHTTPBody: bodyData ];
 
-//    [ request setValue: @"track=🇺🇸" forHTTPHeaderField: @"form-data" ];
     self.dataTask = [ self.defaultSession dataTaskWithRequest: request
                                             completionHandler: nil ];
-//        ^( NSData* _Body, NSURLResponse* _Response, NSError* _Error )
-//            {
-//            if ( _Response )
-//                NSLog( @"%@", _Response );
-//
-//            if ( _Body )
-//                NSLog( @"%@", [ [ NSString alloc ] initWithData: _Body encoding: NSUTF8StringEncoding ] );
-//
-//            if ( _Error )
-//                NSLog( @"%@", _Error );
-////                [ self performSelectorOnMainThread: @selector( presentError: ) withObject: _Error waitUntilDone: YES ];
-//            } ];
-
     [ self.dataTask resume ];
     }
 
@@ -246,8 +231,9 @@
              dataTask: ( NSURLSessionDataTask* )_DataTask
        didReceiveData: ( NSData* )_Data
     {
-    NSLog( @"%s", __PRETTY_FUNCTION__ );
-    NSLog( @"%@", [ [ NSString alloc ] initWithData: _Data encoding: NSUTF8StringEncoding ] );
+    NSString* JSONString = [ [ NSString alloc ] initWithData: _Data encoding: NSUTF8StringEncoding ];
+//    OTCTweet* tweet = [ OTCTweet tweetWithJSON:  ];
+    NSLog( @"%@\n\n\n", JSONString );
     }
 
 - ( void ) URLSession: ( NSURLSession* )_URLSession
