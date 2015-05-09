@@ -17,7 +17,7 @@
 
 @property ( copy ) NSURLSession* defaultSession;
     @property ( strong ) NSURLSessionDataTask* dataTask;
-    @property ( retain ) NSMutableData* receivedData;
+    @property ( strong ) NSMutableData* receivedData;
 
 @property ( retain ) STTwitterAPI* twitterAPI;
     @property ( copy ) NSString* consumerName;

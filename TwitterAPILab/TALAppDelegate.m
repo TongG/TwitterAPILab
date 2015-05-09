@@ -189,79 +189,53 @@
 
 - ( IBAction ) fetchHomeTimelineWithManualOAuthSigning: ( id )_Sender
     {
-    NSURL* baseURL = [ NSURL URLWithString: @"https://api.twitter.com/oauth/access_token" ];
+    NSURL* APIURL = [ NSURL URLWithString: @"https://stream.twitter.com/1.1/statuses/filter.json" ];
 
-//    NSString* PINCode = [ self.PINField stringValue ];
-
-    NSString* requestURLPath = self.requestTokenLabel.stringValue;
-    NSArray* components = [ requestURLPath componentsSeparatedByString: @"&" ];
-
-    NSMutableString* requestToken = nil;
-    NSMutableString* requestTokenSecret = nil;
-    for ( int _Index = 0; _Index < 2; _Index++ )
-        {
-        NSArray* subComponents = [ components[ _Index ] componentsSeparatedByString: @"=" ];
-
-        if ( _Index == 0 )
-            requestToken = subComponents.lastObject;
-        else if ( _Index == 1 )
-            requestTokenSecret = subComponents.lastObject;
-        }
-
-    NSString* HTTPMethod = @"POST";
-    NSString* OAuthCallback = @"oob";
-    NSString* OAuthConsumerKey = @"hgHSOcN9Qc4S0W3MXykn7ajUi";
-    NSString* OAuthNonce = TGNonce();
-    NSString* OAuthRequestToken = requestToken;
-    NSString* OAuthSignatureMethod = @"HMAC-SHA1";
-    NSString* OAuthTimestamp = TGTimestamp();
-//    NSString* OAuthPINCode = PINCode;
-    NSString* OAuthVersion = @"1.0";
-
-    NSArray* requestParameters = @[ @{ @"oauth_callback" : OAuthCallback }
-                                  , @{ @"oauth_consumer_key" : OAuthConsumerKey }
-                                  , @{ @"oauth_nonce" : OAuthNonce }
-                                  , @{ @"oauth_signature_method" : OAuthSignatureMethod }
-                                  , @{ @"oauth_timestamp" : OAuthTimestamp }
-                                  , @{ @"oauth_token" : OAuthRequestToken }
-//                                  , @{ @"oauth_verifier" : OAuthPINCode }
-                                  , @{ @"oauth_version" : OAuthVersion }
+    NSString* HTTPMethod = @"GET";
+    NSMutableArray* requestParameters = [ NSMutableArray arrayWithObjects:
+                                    @{ @"oauth_consumer_key" : self.consumerKey }
+                                  , @{ @"oauth_nonce" : TGNonce() }
+                                  , @{ @"oauth_signature_method" : @"HMAC-SHA1" }
+                                  , @{ @"oauth_timestamp" : TGTimestamp() }
+                                  , @{ @"oauth_token" : self.twitterAPI.oauthAccessToken }
+                                  , @{ @"oauth_version" : @"1.0" }
+                                  , @{ @"track" : @"china,america,japan" }
+                                  , nil
                                   ];
 
-    NSString* signatureBaseString = TGSignatureBaseString( HTTPMethod, baseURL, requestParameters );
+    NSString* signatureBaseString = TGSignatureBaseString( HTTPMethod, APIURL, requestParameters );
 
-    NSString* consumerSecret = [ NSString stringWithContentsOfFile: [ NSHomeDirectory() stringByAppendingString: @"/Pictures/consumer_secret.txt" ]
-                                                          encoding: NSUTF8StringEncoding
-                                                             error: nil ];
-    NSString* OAuthSignature = nil;
-    NSMutableString* signingKey = [ NSMutableString stringWithFormat: @"%@&%@", consumerSecret, requestTokenSecret ];
-    OAuthSignature = TGSignWithHMACSHA1( signatureBaseString, signingKey );
-    OAuthSignature = TGPercentEncodeString( OAuthSignature );
+    NSMutableString* signingKey = [ NSMutableString stringWithFormat: @"%@&%@", self.consumerSecret, self.twitterAPI.oauthAccessTokenSecret ];
+    NSString* OAuthSignature = TGPercentEncodeString( TGSignWithHMACSHA1( signatureBaseString, signingKey ) );
 
+//    [ requestParameters insertObject: @{ @"oauth_signature" : OAuthSignature } atIndex: 2 ];
+//    NSString* authorizationHeader = TGAuthorizationHeaders( requestParameters );
     NSString* authorizationHeader = TGAuthorizationHeaders( [ requestParameters arrayByAddingObject: @{ @"oauth_signature" : OAuthSignature } ] );
 
-    NSMutableURLRequest* tokenRequest = [ NSMutableURLRequest requestWithURL: baseURL ];
-    [ tokenRequest setHTTPMethod: @"POST" ];
-    [ tokenRequest setValue: authorizationHeader forHTTPHeaderField: @"Authorization" ];
-    self.dataTask = [ self.defaultSession dataTaskWithRequest: tokenRequest
+    NSMutableURLRequest* request = [ NSMutableURLRequest requestWithURL: APIURL ];
+    [ request setHTTPMethod: HTTPMethod ];
+    [ request setValue: @"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField: @"Content-Type" ];
+    [ request setValue: authorizationHeader forHTTPHeaderField: @"Authorization" ];
+    NSData* bodyData = [ @"track=%F0%9F%87%B0%F0%9F%87%B7%F0%9F%87%A8%F0%9F%87%B3%F0%9F%87%AF%F0%9F%87%B5,delimited=length,stall_warning=0,stringify_friend_ids=1" dataUsingEncoding: NSUTF8StringEncoding ];
+    [ request setValue: [ NSString stringWithFormat: @"%u", ( unsigned int )[ bodyData length ] ] forHTTPHeaderField: @"Content-Length" ];
+    [ request setHTTPBody: bodyData ];
+
+//    [ request setValue: @"track=🇺🇸" forHTTPHeaderField: @"form-data" ];
+    self.dataTask = [ self.defaultSession dataTaskWithRequest: request
                                             completionHandler:
         ^( NSData* _Body, NSURLResponse* _Response, NSError* _Error )
             {
-            NSError* error = nil;
-            if ( !error )
+            if ( !_Error )
                 {
-                if ( _Body.length )
-                    {
-                    NSString* token = [ [ NSString alloc ] initWithData: _Body encoding: NSUTF8StringEncoding ];
-                    [ self.accessTokenLabel setStringValue: token ];
-                    }
+                NSString* streamedData = [ [ NSString alloc ] initWithData: _Body encoding: NSUTF8StringEncoding ];
+                NSLog( @"%@", streamedData );
                 }
             else
-                [ self performSelectorOnMainThread: @selector( presentError: ) withObject: error waitUntilDone: YES ];
+                NSLog( @"%@", _Error );
+//                [ self performSelectorOnMainThread: @selector( presentError: ) withObject: _Error waitUntilDone: YES ];
             } ];
 
     [ self.dataTask resume ];
-
     }
 
 @synthesize userScreenNameTextField;
