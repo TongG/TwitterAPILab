@@ -232,8 +232,20 @@
        didReceiveData: ( NSData* )_Data
     {
     NSString* JSONString = [ [ NSString alloc ] initWithData: _Data encoding: NSUTF8StringEncoding ];
-//    OTCTweet* tweet = [ OTCTweet tweetWithJSON:  ];
-    NSLog( @"%@\n\n\n", JSONString );
+
+    NSArray* components = [ JSONString componentsSeparatedByString: @"\r\n" ];
+    for ( NSString* sub in components )
+        {
+        NSDictionary* JSONDict = [ NSJSONSerialization JSONObjectWithData: [ sub dataUsingEncoding: NSUTF8StringEncoding ] options: 0 error: nil ];
+
+        if ( JSONDict )
+            {
+            OTCTweet* tweet = [ OTCTweet tweetWithJSON: JSONDict ];
+            NSLog( @"%@\n\n\n", tweet.tweetText );
+            }
+        else
+            NSLog( @"%@", sub );
+        }
     }
 
 - ( void ) URLSession: ( NSURLSession* )_URLSession
