@@ -11,7 +11,7 @@
 
 @class STTwitterAPI;
 
-@interface TALAppDelegate : NSObject <NSApplicationDelegate>
+@interface TALAppDelegate : NSObject <NSApplicationDelegate, NSURLSessionDataDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
 
