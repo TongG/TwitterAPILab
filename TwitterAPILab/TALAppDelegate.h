@@ -44,7 +44,8 @@
 - ( IBAction ) GETUserTimelineAction: ( id )_Sender;
 
 @property ( weak ) IBOutlet NSTextField* userIDTextField;
-@property ( weak ) IBOutlet NSButton* fetchUserTimelineWithStreamingAPIButton;
+@property ( weak ) IBOutlet NSButton* fetchPublicTimelineWithStreamingAPIButton;
+@property ( weak ) IBOutlet NSButton* fetchUserTimelineWithStreamingAPIbutton;
 
 @property (nonatomic, retain) STTwitterStreamParser *streamParser;
 

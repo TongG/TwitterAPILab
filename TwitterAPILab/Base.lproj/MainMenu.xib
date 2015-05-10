@@ -18,8 +18,9 @@
                 <outlet property="GETUserTimelineButton" destination="Tf8-Fe-aQw" id="MG1-pC-PUI"/>
                 <outlet property="accessTokenLabel" destination="lWG-hM-Y6S" id="rtN-8w-HWn"/>
                 <outlet property="fetchAccessTokenButton" destination="wnx-hc-wef" id="Uhx-2i-4Gj"/>
+                <outlet property="fetchPublicTimelineWithStreamingAPIButton" destination="8NE-rK-zY8" id="OuC-l2-Me3"/>
                 <outlet property="fetchRequestToken" destination="lbS-Vh-ptS" id="A1h-BQ-Q1v"/>
-                <outlet property="fetchUserTimelineWithStreamingAPIButton" destination="a0G-lP-xx2" id="nKc-c7-6sA"/>
+                <outlet property="fetchUserTimelineWithStreamingAPIbutton" destination="usd-sy-WZE" id="s8P-ZD-qk3"/>
                 <outlet property="inputPINTextField" destination="IHd-EO-43N" id="mkN-zp-rMF"/>
                 <outlet property="requestTokenLabel" destination="jys-iE-TZg" id="lQL-oc-CEf"/>
                 <outlet property="userIDTextField" destination="hFx-o1-BEw" id="bm1-J7-Wsz"/>
@@ -802,12 +803,22 @@
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8NE-rK-zY8">
                         <rect key="frame" x="134" y="200" width="326" height="23"/>
-                        <buttonCell key="cell" type="smallSquare" title="GET Home Timeline with Manual OAuth Signing" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XQE-Bq-eRH">
+                        <buttonCell key="cell" type="smallSquare" title="GET Public Timeline with Manual OAuth Signing" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XQE-Bq-eRH">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="fetchHomeTimelineWithManualOAuthSigning:" target="Voe-Tx-rLC" id="mJL-2x-ISp"/>
+                            <action selector="fetchPublicTimelineWithManualOAuthSigning:" target="Voe-Tx-rLC" id="HXI-CP-wYr"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="usd-sy-WZE">
+                        <rect key="frame" x="20" y="171" width="326" height="23"/>
+                        <buttonCell key="cell" type="smallSquare" title="GET User Timeline with Manual OAuth Signing" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FgO-b2-H5Q">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="fetchHomeTimelineWithManualOAuthSigning:" target="Voe-Tx-rLC" id="f69-63-zbg"/>
                         </connections>
                     </button>
                 </subviews>

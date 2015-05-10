@@ -105,52 +105,57 @@
 
 - ( IBAction ) fetchHomeTimelineAction: ( id )_Sender
     {
-    self.streamParser = [[STTwitterStreamParser alloc] init];
-    __weak STTwitterStreamParser *streamParser = self.streamParser;
+//    self.streamParser = [[STTwitterStreamParser alloc] init];
+//    __weak STTwitterStreamParser *streamParser = self.streamParser;
+//
+//    [ self.twitterAPI getResource: @"user.json"
+//                    baseURLString: @"https://userstream.twitter.com/1.1"
+//                       parameters: @{ @"stringify_friend_ids" : @"1"
+//                                    , @"delimited" : @"length"
+//                                    , @"stall_warnings" : @"0"
+//                                    , @"with" : @"followings"
+//                                    , @"language" : @"en,zh,fr"
+//                                    , @"track" : @"🇺🇸"
+//                                    , @"replies" : @"all"
+//                                    }
+//            downloadProgressBlock:
+//                ^( id response )
+//                    {
+//                    [streamParser parseWithStreamData:response parsedJSONBlock:^(NSDictionary *json, STTwitterStreamJSONType _JSONType )
+//                        {
+//                        NSLog( @"%@", [ OTCTweet tweetWithJSON: json ].tweetText );
+//                        } ];
+//                    }
+//                     successBlock: ^(NSDictionary *rateLimits, id json) { }
+//                       errorBlock: ^( NSError* _Error ) {} ];
 
-    [ self.twitterAPI getResource: @"user.json"
-                    baseURLString: @"https://userstream.twitter.com/1.1"
-                       parameters: @{ @"stringify_friend_ids" : @"1"
-                                    , @"delimited" : @"length"
-                                    , @"stall_warnings" : @"0"
-                                    , @"with" : @"followings"
-                                    , @"language" : @"en,zh,fr"
-                                    , @"track" : @"🇺🇸"
-                                    , @"replies" : @"all"
-                                    }
-            downloadProgressBlock:
-                ^( id response )
-                    {
-                    [streamParser parseWithStreamData:response parsedJSONBlock:^(NSDictionary *json, STTwitterStreamJSONType _JSONType )
-                        {
-                        NSLog( @"%@", [ OTCTweet tweetWithJSON: json ].tweetText );
-                        } ];
-                    }
-                     successBlock: ^(NSDictionary *rateLimits, id json) { }
-                       errorBlock: ^( NSError* _Error ) {} ];
-
-//    [ self.twitterAPI getUserStreamIncludeMessagesFromFollowedAccounts: @NO
-//                                                        includeReplies: @NO
-//                                                       keywordsToTrack: @[ @"中国" ]
-//                                                 locationBoundingBoxes: nil
-//                                                            tweetBlock:
-//        ^( NSDictionary* _Tweet )
-//            {
-//            NSLog( @"%@", [ OTCTweet tweetWithJSON: _Tweet ].tweetText );
-//            }
-//                                                     stallWarningBlock:
-//                                                     ^( NSString* _Code, NSString* _Message, NSUInteger _PercentFull )
-//                                                        {
-//                                                        NSLog( @"..." );
-//                                                        NSLog( @"Code: %@", _Code );
-//                                                        NSLog( @"Message: %@", _Message );
-//                                                        NSLog( @"Percent Full: %lu", _PercentFull );
-//                                                        NSLog( @"..." );
-//                                                        }
-//                                                            errorBlock: ^( NSError* _Error )
-//                                                                    {
-//                                                                    NSLog( @"Error: %@", _Error );
-//                                                                    } ];
+    [ self.twitterAPI getUserStreamIncludeMessagesFromFollowedAccounts: @NO
+                                                        includeReplies: @NO
+                                                       keywordsToTrack: nil
+                                                 locationBoundingBoxes: nil
+                                                            tweetBlock:
+        ^( NSDictionary* _Tweet )
+            {
+            NSLog( @"%@", [ OTCTweet tweetWithJSON: _Tweet ].tweetText );
+            }
+            eventBlock:
+        ^( NSDictionary* _Tweet )
+            {
+            NSLog( @"%@", _Tweet );
+            }
+                                                     stallWarningBlock:
+                                                     ^( NSString* _Code, NSString* _Message, NSUInteger _PercentFull )
+                                                        {
+                                                        NSLog( @"..." );
+                                                        NSLog( @"Code: %@", _Code );
+                                                        NSLog( @"Message: %@", _Message );
+                                                        NSLog( @"Percent Full: %lu", _PercentFull );
+                                                        NSLog( @"..." );
+                                                        }
+                                                            errorBlock: ^( NSError* _Error )
+                                                                    {
+                                                                    NSLog( @"Error: %@", _Error );
+                                                                    } ];
     }
 
 - ( IBAction ) fetchUserTimelineWithStreamingAPIAction: ( id )_Sender
@@ -189,13 +194,14 @@
             } errorBlock: ^( NSError* _Error ) { NSLog( @"%@", _Error ); } ];
     }
 
-- ( IBAction ) fetchHomeTimelineWithManualOAuthSigning: ( id )_Sender
+- ( IBAction ) fetchPublicTimelineWithManualOAuthSigning: ( id )_Sender
     {
     NSURL* APIURL = [ NSURL URLWithString: @"https://stream.twitter.com/1.1/statuses/filter.json" ];
 
     NSString* HTTPMethod = @"POST";
     NSMutableArray* requestParameters = [ NSMutableArray arrayWithObjects:
                                     @{ @"delimited" : @"length" }
+                                  , @{ @"language" : @"zh%2Cen" }
                                   , @{ @"oauth_consumer_key" : self.consumerKey }
                                   , @{ @"oauth_nonce" : TGNonce() }
                                   , @{ @"oauth_signature_method" : @"HMAC-SHA1" }
@@ -203,7 +209,7 @@
                                   , @{ @"oauth_token" : self.twitterAPI.oauthAccessToken }
                                   , @{ @"oauth_version" : @"1.0" }
                                   , @{ @"stall_warnings" : @"0" }
-                                  , @{ @"track" : @"%F0%9F%87%A8%F0%9F%87%B3%2C%F0%9F%87%BA%F0%9F%87%B8%2CMicrosoft%20Apple" }
+                                  , @{ @"track" : @"%F0%9F%87%A8%F0%9F%87%B3%2C%F0%9F%87%BA%F0%9F%87%B8%2CMicrosoft%2CApple" }
                                   , nil
                                   ];
 
@@ -216,11 +222,54 @@
 
     NSMutableURLRequest* request = [ NSMutableURLRequest requestWithURL: APIURL ];
     [ request setHTTPMethod: HTTPMethod ];
+
+    NSData* bodyData = [ @"delimited=length&language=zh%2Cen&stall_warnings=0&track=%F0%9F%87%A8%F0%9F%87%B3%2C%F0%9F%87%BA%F0%9F%87%B8%2CMicrosoft%2CApple" dataUsingEncoding: NSUTF8StringEncoding ];
+    [ request setHTTPBody: bodyData ];
+
+    [ request addValue: [ NSString stringWithFormat: @"%u", ( unsigned int )[ bodyData length ] ] forHTTPHeaderField: @"Content-Length" ];
     [ request addValue: @"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField: @"Content-Type" ];
     [ request addValue: authorizationHeader forHTTPHeaderField: @"Authorization" ];
-    NSData* bodyData = [ @"delimited=length&stall_warnings=0&track=%F0%9F%87%A8%F0%9F%87%B3%2C%F0%9F%87%BA%F0%9F%87%B8%2CMicrosoft%20Apple" dataUsingEncoding: NSUTF8StringEncoding ];
-    [ request addValue: [ NSString stringWithFormat: @"%u", ( unsigned int )[ bodyData length ] ] forHTTPHeaderField: @"Content-Length" ];
+    [ request addValue: @"deflate, gzip" forHTTPHeaderField: @"Accept-Encoding" ];
+
+    self.dataTask = [ self.defaultSession dataTaskWithRequest: request
+                                            completionHandler: nil ];
+    [ self.dataTask resume ];
+    }
+
+- ( IBAction ) fetchHomeTimelineWithManualOAuthSigning: ( id )_Sender
+    {
+    NSURL* APIURL = [ NSURL URLWithString: @"https://userstream.twitter.com/1.1/user.json" ];
+
+    NSString* HTTPMethod = @"POST";
+    NSMutableArray* requestParameters = [ NSMutableArray arrayWithObjects:
+                                    @{ @"delimited" : @"length" }
+                                  , @{ @"oauth_consumer_key" : self.consumerKey }
+                                  , @{ @"oauth_nonce" : TGNonce() }
+                                  , @{ @"oauth_signature_method" : @"HMAC-SHA1" }
+                                  , @{ @"oauth_timestamp" : TGTimestamp() }
+                                  , @{ @"oauth_token" : self.twitterAPI.oauthAccessToken }
+                                  , @{ @"oauth_version" : @"1.0" }
+                                  , @{ @"stall_warnings" : @"1" }
+                                  , nil
+                                  ];
+
+    NSString* signatureBaseString = TGSignatureBaseString( HTTPMethod, APIURL, requestParameters );
+
+    NSMutableString* signingKey = [ NSMutableString stringWithFormat: @"%@&%@", self.consumerSecret, self.twitterAPI.oauthAccessTokenSecret ];
+    NSString* OAuthSignature = TGPercentEncodeString( TGSignWithHMACSHA1( signatureBaseString, signingKey ) );
+
+    NSString* authorizationHeader = TGAuthorizationHeaders( [ requestParameters arrayByAddingObject: @{ @"oauth_signature" : OAuthSignature } ] );
+
+    NSMutableURLRequest* request = [ NSMutableURLRequest requestWithURL: APIURL ];
+    [ request setHTTPMethod: HTTPMethod ];
+
+    NSData* bodyData = [ @"delimited=length&stall_warnings=1" dataUsingEncoding: NSUTF8StringEncoding ];
     [ request setHTTPBody: bodyData ];
+
+    [ request addValue: [ NSString stringWithFormat: @"%u", ( unsigned int )[ bodyData length ] ] forHTTPHeaderField: @"Content-Length" ];
+    [ request addValue: @"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField: @"Content-Type" ];
+    [ request addValue: authorizationHeader forHTTPHeaderField: @"Authorization" ];
+    [ request addValue: @"deflate, gzip" forHTTPHeaderField: @"Accept-Encoding" ];
 
     self.dataTask = [ self.defaultSession dataTaskWithRequest: request
                                             completionHandler: nil ];
@@ -231,22 +280,27 @@
              dataTask: ( NSURLSessionDataTask* )_DataTask
        didReceiveData: ( NSData* )_Data
     {
-    sleep( 5 );
     NSString* JSONString = [ [ NSString alloc ] initWithData: _Data encoding: NSUTF8StringEncoding ];
 
-    NSArray* components = [ JSONString componentsSeparatedByString: @"\r\n" ];
-    for ( NSString* sub in components )
-        {
-        NSDictionary* JSONDict = [ NSJSONSerialization JSONObjectWithData: [ sub dataUsingEncoding: NSUTF8StringEncoding ] options: 0 error: nil ];
+    NSDictionary* JSONDict = [ NSJSONSerialization JSONObjectWithData: [ JSONString dataUsingEncoding: NSUTF8StringEncoding ] options: 0 error: nil ];
+    NSLog( @"%@", JSONDict );
 
-        if ( JSONDict )
-            {
-            OTCTweet* tweet = [ OTCTweet tweetWithJSON: JSONDict ];
-            NSLog( @"%@\n\n\n", tweet.tweetText );
-            }
-        else
-            NSLog( @"%@", sub );
-        }
+//    NSArray* components = [ JSONString componentsSeparatedByString: @"\r\n" ];
+//    for ( NSString* sub in components )
+//        {
+//        NSDictionary* JSONDict = [ NSJSONSerialization JSONObjectWithData: [ sub dataUsingEncoding: NSUTF8StringEncoding ] options: 0 error: nil ];
+//
+//        if ( JSONDict )
+//            {
+//            OTCTweet* tweet = [ OTCTweet tweetWithJSON: JSONDict ];
+//            NSLog( @"%@\n\n\n", tweet.tweetText );
+//            }
+//        else
+//            NSLog( @"%@", sub );
+//        }
+//
+//    if ( components.count == 0 && JSONString )
+//        NSLog( @"%@", JSONString );
     }
 
 - ( void ) URLSession: ( NSURLSession* )_URLSession
