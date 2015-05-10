@@ -42,7 +42,7 @@
 
     NSURLSessionConfiguration* defaultConfig = [ NSURLSessionConfiguration defaultSessionConfiguration ];
 //    self.defaultSession = [ NSURLSession sessionWithConfiguration: defaultConfig ];
-    self.defaultSession = [ NSURLSession sessionWithConfiguration: defaultConfig delegate: self delegateQueue: [ NSOperationQueue mainQueue ] ];
+    self.defaultSession = [ NSURLSession sessionWithConfiguration: defaultConfig delegate: self delegateQueue: [ [ NSOperationQueue alloc ] init ] ];
     self.receivedData = [ NSMutableData data ];
     }
 
@@ -231,6 +231,7 @@
              dataTask: ( NSURLSessionDataTask* )_DataTask
        didReceiveData: ( NSData* )_Data
     {
+    sleep( 5 );
     NSString* JSONString = [ [ NSString alloc ] initWithData: _Data encoding: NSUTF8StringEncoding ];
 
     NSArray* components = [ JSONString componentsSeparatedByString: @"\r\n" ];
