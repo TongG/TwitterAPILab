@@ -129,51 +129,51 @@
 //                     successBlock: ^(NSDictionary *rateLimits, id json) { }
 //                       errorBlock: ^( NSError* _Error ) {} ];
 
-    [ self.twitterAPI getUserStreamIncludeMessagesFromFollowedAccounts: @NO
-                                                        includeReplies: @NO
-                                                       keywordsToTrack: nil
-                                                 locationBoundingBoxes: nil
-                                                            tweetBlock:
-        ^( OTCTweet* _Tweet )
-            {
-            NSLog( @"%@", _Tweet.tweetText );
-            }
-                                                            eventBlock:
-        ^( OTCStreamingEvent* _Event )
-            {
-            NSLog( @"Event: %@", _Event );
-            }
-                                                    tweetDeletionBlock:
-        ^( NSString* _DeletedTweetID, NSString* _UserID, NSDate* _DeletionDate )
-            {
-            NSLog( @"%@", [ @{ @"Deleted Tweet ID" : _DeletedTweetID
-                             , @"User ID" : _UserID
-                             , @"Deletion Date" : _DeletionDate
-                             } description ] );
-            }
-                                                     stallWarningBlock:
-        ^( NSString* _Code, NSString* _Message, NSUInteger _PercentFull )
-        {
-        NSLog( @"..." );
-        NSLog( @"Code: %@", _Code );
-        NSLog( @"Message: %@", _Message );
-        NSLog( @"Percent Full: %lu", _PercentFull );
-        NSLog( @"..." );
-        }
-                                                     disconectionBlock:
-        ^( NSString* _Code, NSString* _StreamName, NSString* _Reason )
-            {
-            NSLog( @"...." );
-            NSLog( @"Disconnected!" );
-            NSLog( @"Code: %@", _Code );
-            NSLog( @"Stream Name: %@", _StreamName );
-            NSLog( @"Reason: %@", _Reason );
-            NSLog( @"...." );
-            }
-                                                            errorBlock: ^( NSError* _Error )
-                                                                    {
-                                                                    NSLog( @"Error: %@", _Error );
-                                                                    } ];
+//    [ self.twitterAPI getUserStreamIncludeMessagesFromFollowedAccounts: @NO
+//                                                        includeReplies: @NO
+//                                                       keywordsToTrack: nil
+//                                                 locationBoundingBoxes: nil
+//                                                            tweetBlock:
+//        ^( OTCTweet* _Tweet )
+//            {
+//            NSLog( @"%@", _Tweet.tweetText );
+//            }
+//                                                            eventBlock:
+//        ^( OTCStreamingEvent* _Event )
+//            {
+//            NSLog( @"Event: %@", _Event );
+//            }
+//                                                    tweetDeletionBlock:
+//        ^( NSString* _DeletedTweetID, NSString* _UserID, NSDate* _DeletionDate )
+//            {
+//            NSLog( @"%@", [ @{ @"Deleted Tweet ID" : _DeletedTweetID
+//                             , @"User ID" : _UserID
+//                             , @"Deletion Date" : _DeletionDate
+//                             } description ] );
+//            }
+//                                                     stallWarningBlock:
+//        ^( NSString* _Code, NSString* _Message, NSUInteger _PercentFull )
+//        {
+//        NSLog( @"..." );
+//        NSLog( @"Code: %@", _Code );
+//        NSLog( @"Message: %@", _Message );
+//        NSLog( @"Percent Full: %lu", _PercentFull );
+//        NSLog( @"..." );
+//        }
+//                                                     disconectionBlock:
+//        ^( NSString* _Code, NSString* _StreamName, NSString* _Reason )
+//            {
+//            NSLog( @"...." );
+//            NSLog( @"Disconnected!" );
+//            NSLog( @"Code: %@", _Code );
+//            NSLog( @"Stream Name: %@", _StreamName );
+//            NSLog( @"Reason: %@", _Reason );
+//            NSLog( @"...." );
+//            }
+//                                                            errorBlock: ^( NSError* _Error )
+//                                                                    {
+//                                                                    NSLog( @"Error: %@", _Error );
+//                                                                    } ];
     }
 
 - ( IBAction ) fetchUserTimelineWithStreamingAPIAction: ( id )_Sender
