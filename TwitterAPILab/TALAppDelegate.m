@@ -134,24 +134,42 @@
                                                        keywordsToTrack: nil
                                                  locationBoundingBoxes: nil
                                                             tweetBlock:
-        ^( NSDictionary* _Tweet )
+        ^( OTCTweet* _Tweet )
             {
-            NSLog( @"%@", [ OTCTweet tweetWithJSON: _Tweet ].tweetText );
+            NSLog( @"%@", _Tweet.tweetText );
             }
-            eventBlock:
-        ^( NSDictionary* _Tweet )
+                                                            eventBlock:
+        ^( OTCStreamingEvent* _Event )
             {
-            NSLog( @"%@", _Tweet );
+            NSLog( @"Event: %@", _Event );
+            }
+                                                    tweetDeletionBlock:
+        ^( NSString* _DeletedTweetID, NSString* _UserID, NSDate* _DeletionDate )
+            {
+            NSLog( @"%@", [ @{ @"Deleted Tweet ID" : _DeletedTweetID
+                             , @"User ID" : _UserID
+                             , @"Deletion Date" : _DeletionDate
+                             } description ] );
             }
                                                      stallWarningBlock:
-                                                     ^( NSString* _Code, NSString* _Message, NSUInteger _PercentFull )
-                                                        {
-                                                        NSLog( @"..." );
-                                                        NSLog( @"Code: %@", _Code );
-                                                        NSLog( @"Message: %@", _Message );
-                                                        NSLog( @"Percent Full: %lu", _PercentFull );
-                                                        NSLog( @"..." );
-                                                        }
+        ^( NSString* _Code, NSString* _Message, NSUInteger _PercentFull )
+        {
+        NSLog( @"..." );
+        NSLog( @"Code: %@", _Code );
+        NSLog( @"Message: %@", _Message );
+        NSLog( @"Percent Full: %lu", _PercentFull );
+        NSLog( @"..." );
+        }
+                                                     disconectionBlock:
+        ^( NSString* _Code, NSString* _StreamName, NSString* _Reason )
+            {
+            NSLog( @"...." );
+            NSLog( @"Disconnected!" );
+            NSLog( @"Code: %@", _Code );
+            NSLog( @"Stream Name: %@", _StreamName );
+            NSLog( @"Reason: %@", _Reason );
+            NSLog( @"...." );
+            }
                                                             errorBlock: ^( NSError* _Error )
                                                                     {
                                                                     NSLog( @"Error: %@", _Error );

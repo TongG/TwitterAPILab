@@ -33,6 +33,8 @@
 		83A2EFEC1AD65B2700612A0C /* JSONSyntaxHighlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A2EFDD1AD65B2700612A0C /* JSONSyntaxHighlight.m */; };
 		83A2EFED1AD65B2700612A0C /* STHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A2EFDF1AD65B2700612A0C /* STHTTPRequest.m */; };
 		83C398261AFF85D10090FD2E /* NSURL+Objectwitter-C.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C398251AFF85D10090FD2E /* NSURL+Objectwitter-C.m */; };
+		83C398291B0097BF0090FD2E /* OTCStreamingEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C398281B0097BF0090FD2E /* OTCStreamingEvent.m */; };
+		83C3982C1B00C10C0090FD2E /* OTCClientApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C3982B1B00C10C0090FD2E /* OTCClientApplication.m */; };
 		83F817221AFBA86C0000F949 /* _OTCGeneral.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F817081AFBA86C0000F949 /* _OTCGeneral.m */; };
 		83F817231AFBA86C0000F949 /* NSColor+Objectwitter-C.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F8170A1AFBA86C0000F949 /* NSColor+Objectwitter-C.m */; };
 		83F817241AFBA86C0000F949 /* NSDate+WSCCocoaDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F8170C1AFBA86C0000F949 /* NSDate+WSCCocoaDate.m */; };
@@ -132,6 +134,10 @@
 		83A2EFEE1AD65B4200612A0C /* TwitterAPILab.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TwitterAPILab.entitlements; sourceTree = "<group>"; };
 		83C398241AFF85D10090FD2E /* NSURL+Objectwitter-C.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURL+Objectwitter-C.h"; path = "Objectwitter-C/Objectwitter-C/NSURL+Objectwitter-C.h"; sourceTree = SOURCE_ROOT; };
 		83C398251AFF85D10090FD2E /* NSURL+Objectwitter-C.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURL+Objectwitter-C.m"; path = "Objectwitter-C/Objectwitter-C/NSURL+Objectwitter-C.m"; sourceTree = SOURCE_ROOT; };
+		83C398271B0097BF0090FD2E /* OTCStreamingEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTCStreamingEvent.h; path = "Objectwitter-C/Objectwitter-C/OTCStreamingEvent.h"; sourceTree = SOURCE_ROOT; };
+		83C398281B0097BF0090FD2E /* OTCStreamingEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OTCStreamingEvent.m; path = "Objectwitter-C/Objectwitter-C/OTCStreamingEvent.m"; sourceTree = SOURCE_ROOT; };
+		83C3982A1B00C10C0090FD2E /* OTCClientApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTCClientApplication.h; sourceTree = "<group>"; };
+		83C3982B1B00C10C0090FD2E /* OTCClientApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTCClientApplication.m; sourceTree = "<group>"; };
 		83F817071AFBA86C0000F949 /* _OTCGeneral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _OTCGeneral.h; path = "Objectwitter-C/Objectwitter-C/_OTCGeneral.h"; sourceTree = SOURCE_ROOT; };
 		83F817081AFBA86C0000F949 /* _OTCGeneral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _OTCGeneral.m; path = "Objectwitter-C/Objectwitter-C/_OTCGeneral.m"; sourceTree = SOURCE_ROOT; };
 		83F817091AFBA86C0000F949 /* NSColor+Objectwitter-C.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSColor+Objectwitter-C.h"; path = "Objectwitter-C/Objectwitter-C/NSColor+Objectwitter-C.h"; sourceTree = SOURCE_ROOT; };
@@ -323,6 +329,10 @@
 				83F8171F1AFBA86C0000F949 /* OTCTwitterUser.m */,
 				83F817201AFBA86C0000F949 /* OTCUserMention.h */,
 				83F817211AFBA86C0000F949 /* OTCUserMention.m */,
+				83C398271B0097BF0090FD2E /* OTCStreamingEvent.h */,
+				83C398281B0097BF0090FD2E /* OTCStreamingEvent.m */,
+				83C3982A1B00C10C0090FD2E /* OTCClientApplication.h */,
+				83C3982B1B00C10C0090FD2E /* OTCClientApplication.m */,
 				83C398241AFF85D10090FD2E /* NSURL+Objectwitter-C.h */,
 				83C398251AFF85D10090FD2E /* NSURL+Objectwitter-C.m */,
 				83A2EFD91AD65B2600612A0C /* Vendor */,
@@ -460,6 +470,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83C3982C1B00C10C0090FD2E /* OTCClientApplication.m in Sources */,
 				83F8172A1AFBA86C0000F949 /* OTCPlace.m in Sources */,
 				83A2EF9E1AD658E300612A0C /* TALAppDelegate.m in Sources */,
 				83F817291AFBA86C0000F949 /* OTCMedia.m in Sources */,
@@ -484,6 +495,7 @@
 				83A2EFED1AD65B2700612A0C /* STHTTPRequest.m in Sources */,
 				83F817271AFBA86C0000F949 /* OTCFinancialSymbol.m in Sources */,
 				83A2EFE01AD65B2700612A0C /* NSDateFormatter+STTwitter.m in Sources */,
+				83C398291B0097BF0090FD2E /* OTCStreamingEvent.m in Sources */,
 				83A2EFEC1AD65B2700612A0C /* JSONSyntaxHighlight.m in Sources */,
 				83A2EFE61AD65B2700612A0C /* STTwitterHTML.m in Sources */,
 				83F817231AFBA86C0000F949 /* NSColor+Objectwitter-C.m in Sources */,
