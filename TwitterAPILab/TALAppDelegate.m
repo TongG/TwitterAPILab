@@ -52,7 +52,7 @@
 - ( void ) twitterAPI: ( STTwitterAPI* )_TwitterAPI
       didReceiveTweet: ( OTCTweet* )_ReceivedTweet
     {
-    NSLog( @"%@", _ReceivedTweet.tweetText );
+    NSLog( @"%@", _ReceivedTweet );
     }
 
 - ( void ) twitterAPI: ( STTwitterAPI* )_TwitterAPI
