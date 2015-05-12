@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8329FAAF1B011A1500FA8367 /* OTCClientApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 8329FAAC1B011A1500FA8367 /* OTCClientApplication.m */; };
+		8329FAB31B01352500FA8367 /* OTCDirectMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8329FAB21B01352500FA8367 /* OTCDirectMessage.m */; };
 		83A2EF8B1AD658E300612A0C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83A2EF8A1AD658E300612A0C /* Cocoa.framework */; };
 		83A2EF951AD658E300612A0C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83A2EF931AD658E300612A0C /* InfoPlist.strings */; };
 		83A2EF971AD658E300612A0C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A2EF961AD658E300612A0C /* main.m */; };
@@ -84,6 +85,8 @@
 		8329FAAB1B011A1500FA8367 /* OTCClientApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTCClientApplication.h; path = "../Objectwitter-C/OTCClientApplication.h"; sourceTree = "<group>"; };
 		8329FAAC1B011A1500FA8367 /* OTCClientApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OTCClientApplication.m; path = "../Objectwitter-C/OTCClientApplication.m"; sourceTree = "<group>"; };
 		8329FAAD1B011A1500FA8367 /* OTCSTTwitterAPIDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTCSTTwitterAPIDelegate.h; path = "../Objectwitter-C/OTCSTTwitterAPIDelegate.h"; sourceTree = "<group>"; };
+		8329FAB11B01352500FA8367 /* OTCDirectMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTCDirectMessage.h; path = "Objectwitter-C/Objectwitter-C/OTCDirectMessage.h"; sourceTree = SOURCE_ROOT; };
+		8329FAB21B01352500FA8367 /* OTCDirectMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OTCDirectMessage.m; path = "Objectwitter-C/Objectwitter-C/OTCDirectMessage.m"; sourceTree = SOURCE_ROOT; };
 		83A2EF871AD658E300612A0C /* TwitterAPILab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterAPILab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83A2EF8A1AD658E300612A0C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		83A2EF8D1AD658E300612A0C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -326,6 +329,8 @@
 				83F8171B1AFBA86C0000F949 /* OTCResolvedObject.m */,
 				83F8171C1AFBA86C0000F949 /* OTCTweet.h */,
 				83F8171D1AFBA86C0000F949 /* OTCTweet.m */,
+				8329FAB11B01352500FA8367 /* OTCDirectMessage.h */,
+				8329FAB21B01352500FA8367 /* OTCDirectMessage.m */,
 				83F8171E1AFBA86C0000F949 /* OTCTwitterUser.h */,
 				83F8171F1AFBA86C0000F949 /* OTCTwitterUser.m */,
 				83F817201AFBA86C0000F949 /* OTCUserMention.h */,
@@ -491,6 +496,7 @@
 				83A2EFEA1AD65B2700612A0C /* STTwitterStreamParser.m in Sources */,
 				83F8172E1AFBA86C0000F949 /* OTCUserMention.m in Sources */,
 				83C398261AFF85D10090FD2E /* NSURL+Objectwitter-C.m in Sources */,
+				8329FAB31B01352500FA8367 /* OTCDirectMessage.m in Sources */,
 				83F817241AFBA86C0000F949 /* NSDate+WSCCocoaDate.m in Sources */,
 				83F817221AFBA86C0000F949 /* _OTCGeneral.m in Sources */,
 				83A2EFE11AD65B2700612A0C /* NSError+STTwitter.m in Sources */,

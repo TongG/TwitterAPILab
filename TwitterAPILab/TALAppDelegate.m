@@ -40,10 +40,69 @@
                                                           oauthToken: accessTokenComponents.firstObject
                                                     oauthTokenSecret: accessTokenComponents.lastObject ];
 
+    self.twitterAPI.delegate = self;
+
     NSURLSessionConfiguration* defaultConfig = [ NSURLSessionConfiguration defaultSessionConfiguration ];
 //    self.defaultSession = [ NSURLSession sessionWithConfiguration: defaultConfig ];
     self.defaultSession = [ NSURLSession sessionWithConfiguration: defaultConfig delegate: self delegateQueue: [ [ NSOperationQueue alloc ] init ] ];
     self.receivedData = [ NSMutableData data ];
+    }
+
+#pragma mark Conforms to <OTCSTTwitterAPIDelegate> protocol
+- ( void ) twitterAPI: ( STTwitterAPI* )_TwitterAPI
+      didReceiveTweet: ( OTCTweet* )_ReceivedTweet
+    {
+    NSLog( @"%@", _ReceivedTweet.tweetText );
+    }
+
+- ( void ) twitterAPI: ( STTwitterAPI* )_TwitterAPI
+     sentOrReceivedDM: ( OTCDirectMessage* )_DirectMessage
+    {
+    NSLog( @"DM: %@", _DirectMessage );
+    }
+
+- ( void ) twitterAPI: ( STTwitterAPI* )_TwitterAPI
+  tweetHasBeenDeleted: ( NSString* )_DeletedTweetID
+               byUser: ( NSString* )_UserID
+                   on: ( NSDate* )_DeletionDate
+    {
+    NSLog( @"%@", [ @{ @"Deleted Tweet ID" : _DeletedTweetID
+                     , @"User ID" : _UserID
+                     , @"Deletion Date" : _DeletionDate
+                     } description ] );
+    }
+
+- ( void )             twitterAPI: ( STTwitterAPI* )_TwitterAPI
+    streamingEventHasBeenDetected: ( OTCStreamingEvent* )_DetectedEvent
+    {
+    NSLog( @"Event: %@", _DetectedEvent );
+    }
+
+- ( void )    twitterAPI: ( STTwitterAPI* )_TwitterAPI
+               streaming: ( NSString* )_StreamName
+    wasDisconnectedDueTo: ( NSString* )_Reason
+                    code: ( NSString* )_Code
+    {
+    NSLog( @"%@", [ @{ @"Stream Name" : _StreamName
+                     , @"Reason" : _Reason
+                     , @"Code" : _Code
+                     } description ] );
+    }
+
+- ( void )   twitterAPI: ( STTwitterAPI* )_TwitterAPI
+    fuckingErrorOccured: ( NSError* )_Error
+    {
+    NSLog( @"%@", _Error );
+    }
+
+- ( void )      twitterAPI: ( STTwitterAPI* )_TwitterAPI
+    didTriggerStallWarning: ( NSString* )_WarningMessage
+                      code: ( NSString* )_Code
+               percentFull: ( NSUInteger )_PercentFull
+    {
+    NSLog( @"%@", [ @{ @"Warning Code" : _Code
+                     , @"_PercentFull" : @( _PercentFull )
+                     } description ] );
     }
 
 #pragma mark Authorizaton
@@ -105,75 +164,10 @@
 
 - ( IBAction ) fetchHomeTimelineAction: ( id )_Sender
     {
-//    self.streamParser = [[STTwitterStreamParser alloc] init];
-//    __weak STTwitterStreamParser *streamParser = self.streamParser;
-//
-//    [ self.twitterAPI getResource: @"user.json"
-//                    baseURLString: @"https://userstream.twitter.com/1.1"
-//                       parameters: @{ @"stringify_friend_ids" : @"1"
-//                                    , @"delimited" : @"length"
-//                                    , @"stall_warnings" : @"0"
-//                                    , @"with" : @"followings"
-//                                    , @"language" : @"en,zh,fr"
-//                                    , @"track" : @"🇺🇸"
-//                                    , @"replies" : @"all"
-//                                    }
-//            downloadProgressBlock:
-//                ^( id response )
-//                    {
-//                    [streamParser parseWithStreamData:response parsedJSONBlock:^(NSDictionary *json, STTwitterStreamJSONType _JSONType )
-//                        {
-//                        NSLog( @"%@", [ OTCTweet tweetWithJSON: json ].tweetText );
-//                        } ];
-//                    }
-//                     successBlock: ^(NSDictionary *rateLimits, id json) { }
-//                       errorBlock: ^( NSError* _Error ) {} ];
-
-//    [ self.twitterAPI getUserStreamIncludeMessagesFromFollowedAccounts: @NO
-//                                                        includeReplies: @NO
-//                                                       keywordsToTrack: nil
-//                                                 locationBoundingBoxes: nil
-//                                                            tweetBlock:
-//        ^( OTCTweet* _Tweet )
-//            {
-//            NSLog( @"%@", _Tweet.tweetText );
-//            }
-//                                                            eventBlock:
-//        ^( OTCStreamingEvent* _Event )
-//            {
-//            NSLog( @"Event: %@", _Event );
-//            }
-//                                                    tweetDeletionBlock:
-//        ^( NSString* _DeletedTweetID, NSString* _UserID, NSDate* _DeletionDate )
-//            {
-//            NSLog( @"%@", [ @{ @"Deleted Tweet ID" : _DeletedTweetID
-//                             , @"User ID" : _UserID
-//                             , @"Deletion Date" : _DeletionDate
-//                             } description ] );
-//            }
-//                                                     stallWarningBlock:
-//        ^( NSString* _Code, NSString* _Message, NSUInteger _PercentFull )
-//        {
-//        NSLog( @"..." );
-//        NSLog( @"Code: %@", _Code );
-//        NSLog( @"Message: %@", _Message );
-//        NSLog( @"Percent Full: %lu", _PercentFull );
-//        NSLog( @"..." );
-//        }
-//                                                     disconectionBlock:
-//        ^( NSString* _Code, NSString* _StreamName, NSString* _Reason )
-//            {
-//            NSLog( @"...." );
-//            NSLog( @"Disconnected!" );
-//            NSLog( @"Code: %@", _Code );
-//            NSLog( @"Stream Name: %@", _StreamName );
-//            NSLog( @"Reason: %@", _Reason );
-//            NSLog( @"...." );
-//            }
-//                                                            errorBlock: ^( NSError* _Error )
-//                                                                    {
-//                                                                    NSLog( @"Error: %@", _Error );
-//                                                                    } ];
+    [ self.twitterAPI getUserStreamIncludeMessagesFromFollowedAccounts: @NO
+                                                        includeReplies: @NO
+                                                       keywordsToTrack: nil
+                                                 locationBoundingBoxes: nil ];
     }
 
 - ( IBAction ) fetchUserTimelineWithStreamingAPIAction: ( id )_Sender
