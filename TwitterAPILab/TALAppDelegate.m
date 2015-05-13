@@ -66,9 +66,9 @@
                byUser: ( NSString* )_UserID
                    on: ( NSDate* )_DeletionDate
     {
-    NSLog( @"%@", [ @{ @"Deleted Tweet ID" : _DeletedTweetID
-                     , @"User ID" : _UserID
-                     , @"Deletion Date" : _DeletionDate
+    NSLog( @"%@", [ @{ @"Deleted Tweet ID" : _DeletedTweetID ?: [ NSNull null ]
+                     , @"User ID" : _UserID ?: [ NSNull null ]
+                     , @"Deletion Date" : _DeletionDate ?: [ NSNull null ]
                      } description ] );
     }
 

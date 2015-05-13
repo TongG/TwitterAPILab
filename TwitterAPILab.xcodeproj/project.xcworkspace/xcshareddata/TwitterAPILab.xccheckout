@@ -20,7 +20,7 @@
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>18587E881E3ABFA494C4A3627AA8693F7A3692F3</key>
-		<string>../..Objectwitter-C/</string>
+		<string>../..Objectwitter-C</string>
 		<key>E1EB74C1EDF6DE89344ACE41F7FFDD850289A30C</key>
 		<string>../..</string>
 	</dict>
@@ -36,17 +36,17 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>18587E881E3ABFA494C4A3627AA8693F7A3692F3</string>
+			<string>E1EB74C1EDF6DE89344ACE41F7FFDD850289A30C</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Objectwitter-C</string>
+			<string>TwitterAPILab</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>E1EB74C1EDF6DE89344ACE41F7FFDD850289A30C</string>
+			<string>18587E881E3ABFA494C4A3627AA8693F7A3692F3</string>
 			<key>IDESourceControlWCCName</key>
-			<string>TwitterAPILab</string>
+			<string>TwitterAPILabObjectwitter-C</string>
 		</dict>
 	</array>
 </dict>
