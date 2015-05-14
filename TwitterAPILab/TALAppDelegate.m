@@ -48,7 +48,7 @@
     self.receivedData = [ NSMutableData data ];
     }
 
-#pragma mark Conforms to <OTCSTTwitterAPIDelegate> protocol
+#pragma mark Conforms to <OTCSTTwitterStreamingAPIDelegate> protocol
 - ( void )      twitterAPI: ( STTwitterAPI* )_TwitterAPI
     didReceiveFriendsLists: ( NSArray* )_Friends
     {

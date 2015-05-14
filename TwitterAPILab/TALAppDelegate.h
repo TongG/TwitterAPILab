@@ -9,11 +9,11 @@
 #import <Cocoa/Cocoa.h>
 #import "Objectwitter-C.h"
 
-#import "OTCSTTwitterAPIDelegate.h"
+#import "OTCSTTwitterStreamingAPIDelegate.h"
 
 @class STTwitterAPI;
 
-@interface TALAppDelegate : NSObject <NSApplicationDelegate, NSURLSessionDataDelegate, OTCSTTwitterAPIDelegate>
+@interface TALAppDelegate : NSObject <NSApplicationDelegate, NSURLSessionDataDelegate, OTCSTTwitterStreamingAPIDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
 

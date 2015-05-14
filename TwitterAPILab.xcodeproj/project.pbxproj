@@ -85,7 +85,7 @@
 /* Begin PBXFileReference section */
 		8329FAAB1B011A1500FA8367 /* OTCClientApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTCClientApplication.h; path = "../Objectwitter-C/OTCClientApplication.h"; sourceTree = "<group>"; };
 		8329FAAC1B011A1500FA8367 /* OTCClientApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OTCClientApplication.m; path = "../Objectwitter-C/OTCClientApplication.m"; sourceTree = "<group>"; };
-		8329FAAD1B011A1500FA8367 /* OTCSTTwitterAPIDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTCSTTwitterAPIDelegate.h; path = "../Objectwitter-C/OTCSTTwitterAPIDelegate.h"; sourceTree = "<group>"; };
+		8329FAAD1B011A1500FA8367 /* OTCSTTwitterStreamingAPIDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTCSTTwitterStreamingAPIDelegate.h; path = "../Objectwitter-C/OTCSTTwitterStreamingAPIDelegate.h"; sourceTree = "<group>"; };
 		8329FAB11B01352500FA8367 /* OTCDirectMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OTCDirectMessage.h; path = "Objectwitter-C/Objectwitter-C/OTCDirectMessage.h"; sourceTree = SOURCE_ROOT; };
 		8329FAB21B01352500FA8367 /* OTCDirectMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OTCDirectMessage.m; path = "Objectwitter-C/Objectwitter-C/OTCDirectMessage.m"; sourceTree = SOURCE_ROOT; };
 		83A2EF871AD658E300612A0C /* TwitterAPILab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterAPILab.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -346,7 +346,7 @@
 				83C398251AFF85D10090FD2E /* NSURL+Objectwitter-C.m */,
 				8329FAAB1B011A1500FA8367 /* OTCClientApplication.h */,
 				8329FAAC1B011A1500FA8367 /* OTCClientApplication.m */,
-				8329FAAD1B011A1500FA8367 /* OTCSTTwitterAPIDelegate.h */,
+				8329FAAD1B011A1500FA8367 /* OTCSTTwitterStreamingAPIDelegate.h */,
 				83A2EFD91AD65B2600612A0C /* Vendor */,
 			);
 			name = STTwitter;
