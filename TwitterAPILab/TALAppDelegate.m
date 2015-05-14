@@ -104,10 +104,10 @@
 - ( void )      twitterAPI: ( STTwitterAPI* )_TwitterAPI
     didTriggerStallWarning: ( NSString* )_WarningMessage
                       code: ( NSString* )_Code
-               percentFull: ( NSUInteger )_PercentFull
+               percentFull: ( NSString* )_PercentFull
     {
     NSLog( @"%@", [ @{ @"Warning Code" : _Code
-                     , @"_PercentFull" : @( _PercentFull )
+                     , @"_PercentFull" : _PercentFull
                      } description ] );
     }
 
