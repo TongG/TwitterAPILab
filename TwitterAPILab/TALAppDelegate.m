@@ -204,12 +204,7 @@
                     successBlock: ^(NSDictionary *rateLimits, id json) { }
                     errorBlock: ^( NSError* _Error ) { NSLog( @"%@", _Error ); } ];
 #endif
-    [ self.twitterAPI postStatusesFilterKeyword: @"🇨🇳,🇺🇸,Microsoft Apple"
-                                     tweetBlock:
-        ^( NSDictionary* _TweetJSON )
-            {
-            NSLog( @"%@", [ OTCTweet tweetWithJSON: _TweetJSON ].tweetText );
-            } errorBlock: ^( NSError* _Error ) { NSLog( @"%@", _Error ); } ];
+    [ self.twitterAPI postStatusesFilterKeyword: @"🇨🇳,🇺🇸,Microsoft Apple" users: nil locationBoundingBoxes: nil ];
     }
 
 - ( IBAction ) fetchPublicTimelineWithManualOAuthSigning: ( id )_Sender
