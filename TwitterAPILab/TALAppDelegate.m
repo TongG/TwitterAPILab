@@ -49,6 +49,12 @@
     }
 
 #pragma mark Conforms to <OTCSTTwitterAPIDelegate> protocol
+- ( void )      twitterAPI: ( STTwitterAPI* )_TwitterAPI
+    didReceiveFriendsLists: ( NSArray* )_Friends
+    {
+    NSLog( @"Friends: %@", _Friends );
+    }
+
 - ( void ) twitterAPI: ( STTwitterAPI* )_TwitterAPI
       didReceiveTweet: ( OTCTweet* )_ReceivedTweet
     {
