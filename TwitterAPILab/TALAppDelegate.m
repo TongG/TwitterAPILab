@@ -168,12 +168,29 @@
                                                errorBlock: ^( NSError* _Error ) { NSLog( @"%@", _Error ); } ];
     }
 
+- ( IBAction ) fetchSampleTweets: ( id )_Sender
+    {
+    [ self.twitterAPI fetchStatusesSample ];
+    }
+
 - ( IBAction ) fetchHomeTimelineAction: ( id )_Sender
     {
     [ self.twitterAPI getUserStreamIncludeMessagesFromFollowedAccounts: @NO
                                                         includeReplies: @NO
                                                        keywordsToTrack: nil
                                                  locationBoundingBoxes: nil ];
+    }
+
+- ( IBAction ) fetchPublicTweetsWithFilter: ( id )_Sender
+    {
+    [ self.twitterAPI postStatusesFilterKeyword: @"🗽"
+                                          users: nil
+                          locationBoundingBoxes: nil ];
+    }
+
+- ( IBAction ) firehose: ( id )_Sender
+    {
+    [ self.twitterAPI getStatusesFirehoseWithCount: @"0" ];
     }
 
 - ( IBAction ) fetchUserTimelineWithStreamingAPIAction: ( id )_Sender
