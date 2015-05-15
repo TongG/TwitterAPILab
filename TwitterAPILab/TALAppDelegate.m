@@ -40,7 +40,14 @@
                                                           oauthToken: accessTokenComponents.firstObject
                                                     oauthTokenSecret: accessTokenComponents.lastObject ];
 
+    self.testTwitterAPI = [ STTwitterAPI twitterAPIWithOAuthConsumerName: self.consumerName
+                                                             consumerKey: self.consumerKey
+                                                          consumerSecret: self.consumerSecret
+                                                              oauthToken: accessTokenComponents.firstObject
+                                                        oauthTokenSecret: accessTokenComponents.lastObject ];
+
     self.twitterAPI.delegate = self;
+    self.testTwitterAPI.delegate = self;
 
     NSURLSessionConfiguration* defaultConfig = [ NSURLSessionConfiguration defaultSessionConfiguration ];
 //    self.defaultSession = [ NSURLSession sessionWithConfiguration: defaultConfig ];
@@ -175,22 +182,22 @@
 
 - ( IBAction ) fetchHomeTimelineAction: ( id )_Sender
     {
-    [ self.twitterAPI getUserStreamIncludeMessagesFromFollowedAccounts: @NO
-                                                        includeReplies: @NO
-                                                       keywordsToTrack: nil
-                                                 locationBoundingBoxes: nil ];
+    [ self.twitterAPI fetchUserStreamIncludeMessagesFromFollowedAccounts: @NO
+                                                          includeReplies: @NO
+                                                         keywordsToTrack: nil
+                                                   locationBoundingBoxes: nil ];
     }
 
 - ( IBAction ) fetchPublicTweetsWithFilter: ( id )_Sender
     {
-    [ self.twitterAPI postStatusesFilterKeyword: @"🗽"
-                                          users: nil
-                          locationBoundingBoxes: nil ];
+    [ self.testTwitterAPI fetchStatusesFilterKeyword: @"🗽"
+                                           users: nil
+                           locationBoundingBoxes: nil ];
     }
 
 - ( IBAction ) firehose: ( id )_Sender
     {
-    [ self.twitterAPI getStatusesFirehoseWithCount: @"0" ];
+    [ self.twitterAPI fetchStatusesFirehoseWithCount: @"0" ];
     }
 
 - ( IBAction ) fetchUserTimelineWithStreamingAPIAction: ( id )_Sender
@@ -221,7 +228,7 @@
                     successBlock: ^(NSDictionary *rateLimits, id json) { }
                     errorBlock: ^( NSError* _Error ) { NSLog( @"%@", _Error ); } ];
 #endif
-    [ self.twitterAPI postStatusesFilterKeyword: @"🇨🇳,🇺🇸,Microsoft Apple" users: nil locationBoundingBoxes: nil ];
+    [ self.twitterAPI fetchStatusesFilterKeyword: @"🇨🇳,🇺🇸,Microsoft Apple" users: nil locationBoundingBoxes: nil ];
     }
 
 - ( IBAction ) fetchPublicTimelineWithManualOAuthSigning: ( id )_Sender

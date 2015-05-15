@@ -22,6 +22,7 @@
     @property ( strong ) NSMutableData* receivedData;
 
 @property ( retain ) STTwitterAPI* twitterAPI;
+@property ( retain ) STTwitterAPI* testTwitterAPI;
     @property ( copy ) NSString* consumerName;
     @property ( copy ) NSString* consumerKey;
     @property ( copy ) NSString* consumerSecret;
