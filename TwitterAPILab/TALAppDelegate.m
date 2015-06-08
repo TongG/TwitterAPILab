@@ -88,6 +88,10 @@
 - ( void )             twitterAPI: ( STTwitterAPI* )_TwitterAPI
     streamingEventHasBeenDetected: ( OTCStreamingEvent* )_DetectedEvent
     {
+    id targetObject = _DetectedEvent.targetObject;
+    if ( [ targetObject isKindOfClass: [ OTCTweet class ] ] )
+        NSLog( @"Is faved by me: %@", ( ( OTCTweet* )targetObject ).isFavoritedByMe ? @"YES" : @"NO" );
+
     NSLog( @"Event: %@", _DetectedEvent );
     }
 
@@ -186,6 +190,11 @@
                                                           includeReplies: @NO
                                                          keywordsToTrack: nil
                                                    locationBoundingBoxes: nil ];
+    }
+
+- ( IBAction ) fetchTimelineOfSpecifiedUser: ( id )_Sender
+    {
+    [ self.twitterAPI fetchStatusesFilterKeyword: @"" users: @[ @"3166701426,3107332168" ] locationBoundingBoxes: nil ];
     }
 
 - ( IBAction ) fetchPublicTweetsWithFilter: ( id )_Sender
